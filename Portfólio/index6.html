@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Resort & Luxury Stay | Experiência Inesquecível (Portfólio)</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==================== PALETA & VARIAVEIS (INSPIRADO EM NESTORIA UI) ==================== */
+    :root {
+      --bg-main: #f4f5f9;
+      --bg-white: #ffffff;
+      --primary: #5542f6;
+      --primary-dark: #4232d0;
+      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      --accent-purple: #c084fc;
+      --text-dark: #1e1b4b;
+      --text-muted: #64748b;
+      --border-light: #e2e8f0;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 12px 28px -6px rgba(85, 66, 246, 0.12);
+      --shadow-lg: 0 20px 40px -10px rgba(30, 27, 75, 0.1);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ==================== ANIMAÇÕES CSS ==================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: var(--transition);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(85, 66, 246, 0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(85, 66, 246, 0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ==================== HEADER ==================== */
+    header {
+      max-width: 1240px;
+      margin: 20px auto 0;
+      padding: 16px 32px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 20px;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 800;
+      font-size: 1.35rem;
+      cursor: default;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-gradient);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(85, 66, 246, 0.3);
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: -3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border-light);
+      background: var(--bg-white);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: default;
+      transition: var(--transition);
+    }
+
+    .btn-icon:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: default;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(85, 66, 246, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(85, 66, 246, 0.4);
+    }
+
+    /* ==================== HERO SECTION ==================== */
+    .hero-container {
+      max-width: 1240px;
+      margin: 30px auto 0;
+      padding: 40px;
+      background: linear-gradient(180deg, #ffffff 0%, #f1f0fe 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .hero-top-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(85, 66, 246, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(85, 66, 246, 0.15);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-text h1 span {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+
+    .proof-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-white);
+      padding: 8px 16px;
+      border-radius: 30px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+
+    .avatars {
+      display: flex;
+    }
+
+    .avatars img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-left: -8px;
+    }
+
+    .avatars img:first-child { margin-left: 0; }
+
+    .proof-pill span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    /* Hero Image Frame */
+    .hero-media-card {
+      height: 380px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      color: #fff;
+    }
+
+    .hero-media-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.85;
+      transition: var(--transition);
+    }
+
+    .hero-media-card:hover::before {
+      transform: scale(1.04);
+    }
+
+    .hero-media-overlay {
+      position: relative;
+      z-index: 2;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-media-overlay h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-media-overlay p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* SEARCH WIDGET FLOATING */
+    .search-widget {
+      max-width: 1080px;
+      margin: -40px auto 0;
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 20px 30px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      position: relative;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 180px;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .search-field {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-right: 20px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .search-field:last-of-type {
+      border-right: none;
+    }
+
+    .search-field-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(85, 66, 246, 0.08);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .search-field-info span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .search-field-info strong {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .btn-search {
+      width: 100%;
+      height: 52px;
+      background: var(--primary-gradient);
+      color: #fff;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: default;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(85, 66, 246, 0.3);
+    }
+
+    .btn-search:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(85, 66, 246, 0.45);
+    }
+
+    /* ==================== CONFANÇA / PILLARES ==================== */
+    .trust-section {
+      max-width: 1240px;
+      margin: 60px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .trust-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .trust-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(85, 66, 246, 0.3);
+    }
+
+    .trust-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: rgba(85, 66, 246, 0.08);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .trust-card:hover .trust-icon {
+      background: var(--primary-gradient);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .trust-info h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .trust-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==================== POR QUE ESCOLHER ==================== */
+    .why-us-section {
+      max-width: 1240px;
+      margin: 90px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .section-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .why-us-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .why-us-text p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .why-us-list {
+      list-style: none;
+      margin-bottom: 35px;
+    }
+
+    .why-us-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+    }
+
+    .why-us-list i {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-gradient);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+
+    .why-us-media {
+      height: 420px;
+      border-radius: var(--radius-lg);
+      background: url('https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    /* ==================== ACOMODAÇÕES EM DESTAQUE ==================== */
+    .featured-section {
+      max-width: 1240px;
+      margin: 100px auto 0;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .view-all-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: default;
+      transition: var(--transition);
+    }
+
+    .view-all-link:hover {
+      gap: 10px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .suite-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .suite-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .suite-card-image {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .card-badge {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .card-heart-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: default;
+      transition: var(--transition);
+    }
+
+    .card-heart-btn:hover {
+      color: #ef4444;
+      transform: scale(1.1);
+    }
+
+    .suite-card-body {
+      padding: 24px;
+    }
+
+    .suite-card-body h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .location-tag {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .specs-row {
+      display: flex;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+      margin-bottom: 20px;
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .suite-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-box {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price-box span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .btn-card-details {
+      background: var(--text-dark);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: default;
+      transition: var(--transition);
+    }
+
+    .btn-card-details:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ==================== PASSO A PASSO (3 STEPS) ==================== */
+    .steps-section {
+      max-width: 1240px;
+      margin: 100px auto 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .steps-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+      letter-spacing: -0.5px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      position: relative;
+    }
+
+    .step-card {
+      background: var(--bg-white);
+      padding: 32px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-icon-wrapper {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(85, 66, 246, 0.08);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 20px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .step-card:hover .step-icon-wrapper {
+      background: var(--primary-gradient);
+      color: #fff;
+      animation: pulseGlow 1.5s infinite;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--primary);
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ==================== DEPOIMENTOS ==================== */
+    .testimonials-section {
+      max-width: 1240px;
+      margin: 100px auto 0;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .testimonials-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-white);
+      padding: 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      text-align: left;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .user-profile img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: 0.75rem;
+      margin-top: 2px;
+    }
+
+    .testimonial-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-style: italic;
+    }
+
+    /* ==================== BANNER CTA INFERIOR ==================== */
+    .cta-banner-section {
+      max-width: 1240px;
+      margin: 90px auto 80px;
+      padding: 0 20px;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border-radius: var(--radius-lg);
+      padding: 50px 60px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-content {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--accent-purple);
+      flex-shrink: 0;
+    }
+
+    .cta-text h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .cta-text p {
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+
+    .btn-cta-white {
+      background: #fff;
+      color: var(--text-dark);
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: default;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-cta-white:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .why-us-section { grid-template-columns: 1fr; }
+      .search-widget { grid-template-columns: 1fr 1fr; margin-top: 20px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .cta-banner { flex-direction: column; text-align: center; gap: 30px; }
+      .cta-content { flex-direction: column; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .search-widget { grid-template-columns: 1fr; }
+      .search-field { border-right: none; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; }
+      .hero-text h1 { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="reveal">
+    <a href="#" onclick="event.preventDefault();" class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-hotel"></i></div>
+      <div>
+        AURA RESORT
+        <span>LUXURY STAY</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" onclick="event.preventDefault();" class="active">Início</a></li>
+      <li><a href="#" onclick="event.preventDefault();">Acomodações</a></li>
+      <li><a href="#" onclick="event.preventDefault();">Serviços</a></li>
+      <li><a href="#" onclick="event.preventDefault();">Experiências</a></li>
+      <li><a href="#" onclick="event.preventDefault();">Sobre Nós</a></li>
+    </ul>
+
+    <div class="header-actions">
+      <button class="btn-icon" onclick="event.preventDefault();"><i class="fa-regular fa-heart"></i></button>
+      <a href="#" onclick="event.preventDefault();" class="btn-primary">Reservar Agora</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <main class="hero-container reveal">
+    <div class="proof-pill">
+      <div class="avatars">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Hóspede">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Hóspede">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Hóspede">
+      </div>
+      <span>Recomendado por +25K Hóspedes</span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="hero-top-badge"><i class="fa-solid fa-sparkles"></i> Sonhe • Reserve • Viva</span>
+        <h1>Descubra Espaços Que Parecem um <span>Paraíso</span></h1>
+        <p>Acomodações exclusivas e selecionadas a dedo para estadias inesquecíveis que combinam com seu estilo de vida e momento.</p>
+      </div>
+
+      <div class="hero-media-card">
+        <div class="hero-media-overlay">
+          <h3>Villa Beira-Mar Premium</h3>
+          <p><i class="fa-solid fa-location-dot"></i> Búzios, Rio de Janeiro • Suíte Master com Piscina Privativa</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BUSCADOR FLUTUANTE -->
+  <div class="search-widget reveal">
+    <div class="search-field">
+      <div class="search-field-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <div class="search-field-info">
+        <span>Destino</span>
+        <strong>Búzios, RJ</strong>
+      </div>
+    </div>
+
+    <div class="search-field">
+      <div class="search-field-icon"><i class="fa-solid fa-bed"></i></div>
+      <div class="search-field-info">
+        <span>Acomodação</span>
+        <strong>Suíte Presidencial</strong>
+      </div>
+    </div>
+
+    <div class="search-field">
+      <div class="search-field-icon"><i class="fa-solid fa-calendar-days"></i></div>
+      <div class="search-field-info">
+        <span>Período</span>
+        <strong>R$ 800 - R$ 2.500</strong>
+      </div>
+    </div>
+
+    <button class="btn-search" onclick="event.preventDefault();">
+      <i class="fa-solid fa-magnifying-glass"></i> Buscar
+    </button>
+  </div>
+
+  <!-- ==================== PILARES DE CONFIANÇA ==================== -->
+  <section class="trust-section reveal">
+    <div class="trust-card">
+      <div class="trust-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <div class="trust-info">
+        <h4>Resorts Verificados</h4>
+        <p>Acomodações auditadas para sua total tranquilidade.</p>
+      </div>
+    </div>
+
+    <div class="trust-card">
+      <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="trust-info">
+        <h4>Reserva Segura</h4>
+        <p>Sua segurança e privacidade em 100% dos processos.</p>
+      </div>
+    </div>
+
+    <div class="trust-card">
+      <div class="trust-icon"><i class="fa-solid fa-headset"></i></div>
+      <div class="trust-info">
+        <h4>Concierge 24/7</h4>
+        <p>Nossa equipe à disposição a qualquer momento.</p>
+      </div>
+    </div>
+
+    <div class="trust-card">
+      <div class="trust-icon"><i class="fa-solid fa-award"></i></div>
+      <div class="trust-info">
+        <h4>Melhor Tarifa</h4>
+        <p>Garantia dos melhores preços e benefícios exclusivos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== POR QUE ESCOLHER O AURA ==================== -->
+  <section class="why-us-section reveal">
+    <div class="why-us-text">
+      <span class="section-badge">Por Que Escolher o Aura</span>
+      <h2>Muito Mais do Que Apenas Uma Hospedagem</h2>
+      <p>Oferecemos mais do que quartos de luxo. Entregamos experiências memoráveis cuidadosamente desenhadas para o seu descanso e renovação.</p>
+
+      <ul class="why-us-list">
+        <li><i class="fa-solid fa-check"></i> Variedade de suítes de alto padrão com vista panorâmica</li>
+        <li><i class="fa-solid fa-check"></i> Horários flexíveis de check-in e política transparente</li>
+        <li><i class="fa-solid fa-check"></i> Recomendações gastronômicas e roteiros personalizados</li>
+        <li><i class="fa-solid fa-check"></i> Aprovado por milhares de hóspedes em todo o país</li>
+      </ul>
+
+      <a href="#" onclick="event.preventDefault();" class="btn-primary">Saiba Mais <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="why-us-media"></div>
+  </section>
+
+  <!-- ==================== ACOMODAÇÕES DESTAQUE ==================== -->
+  <section class="featured-section reveal">
+    <div class="section-header">
+      <div>
+        <span class="section-badge">Nossas Suítes</span>
+        <h2>Acomodações em Destaque</h2>
+      </div>
+      <a href="#" onclick="event.preventDefault();" class="view-all-link">Ver Todas as Suítes <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="suite-card">
+        <div class="suite-card-image" style="background-image: url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80');">
+          <span class="card-badge">Destaque</span>
+          <button class="card-heart-btn" onclick="event.preventDefault();"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="suite-card-body">
+          <h3>Villa Ocean Front</h3>
+          <div class="location-tag"><i class="fa-solid fa-location-dot"></i> Búzios, Rio de Janeiro</div>
+          <div class="specs-row">
+            <div class="spec-item"><i class="fa-solid fa-user-group"></i> 4 Hóspedes</div>
+            <div class="spec-item"><i class="fa-solid fa-bed"></i> 2 Camas King</div>
+            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 180 m²</div>
+          </div>
+          <div class="suite-card-footer">
+            <div class="price-box">R$ 1.450 <span>/ noite</span></div>
+            <a href="#" onclick="event.preventDefault();" class="btn-card-details">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="suite-card">
+        <div class="suite-card-image" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80');">
+          <span class="card-badge" style="color: #10b981;">Novo</span>
+          <button class="card-heart-btn" onclick="event.preventDefault();"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="suite-card-body">
+          <h3>Suíte Presidencial Luxo</h3>
+          <div class="location-tag"><i class="fa-solid fa-location-dot"></i> Gramado, Rio Grande do Sul</div>
+          <div class="specs-row">
+            <div class="spec-item"><i class="fa-solid fa-user-group"></i> 2 Hóspedes</div>
+            <div class="spec-item"><i class="fa-solid fa-bed"></i> 1 Cama King</div>
+            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 120 m²</div>
+          </div>
+          <div class="suite-card-footer">
+            <div class="price-box">R$ 1.850 <span>/ noite</span></div>
+            <a href="#" onclick="event.preventDefault();" class="btn-card-details">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="suite-card">
+        <div class="suite-card-image" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80');">
+          <span class="card-badge" style="color: #ef4444;">Super Oferta</span>
+          <button class="card-heart-btn" onclick="event.preventDefault();"><i class="fa-regular fa-heart"></i></button>
+        </div>
+        <div class="suite-card-body">
+          <h3>Chalé Refúgio Tropical</h3>
+          <div class="location-tag"><i class="fa-solid fa-location-dot"></i> Trancoso, Bahia</div>
+          <div class="specs-row">
+            <div class="spec-item"><i class="fa-solid fa-user-group"></i> 6 Hóspedes</div>
+            <div class="spec-item"><i class="fa-solid fa-bed"></i> 3 Camas King</div>
+            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 250 m²</div>
+          </div>
+          <div class="suite-card-footer">
+            <div class="price-box">R$ 2.100 <span>/ noite</span></div>
+            <a href="#" onclick="event.preventDefault();" class="btn-card-details">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMO FUNCIONA (3 PASSO) ==================== -->
+  <section class="steps-section reveal">
+    <span class="section-badge">Como Funciona</span>
+    <h2>Reserve Sua Estadia em 3 Passos Simples</h2>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon-wrapper">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span class="step-number">01</span>
+        </div>
+        <h3>Busque & Explore</h3>
+        <p>Navegue por nossas acomodações selecionadas e escolha o cenário perfeito para sua viagem.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon-wrapper">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span class="step-number">02</span>
+        </div>
+        <h3>Escolha as Datas</h3>
+        <p>Selecione seu período, serviços adicionais e confirme os detalhes em um clique.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon-wrapper">
+          <i class="fa-solid fa-key"></i>
+          <span class="step-number">03</span>
+        </div>
+        <h3>Viva a Experiência</h3>
+        <p>Chegue ao resort e desfrute de um atendimento exclusivo feito sob medida para você.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DEPOIMENTOS ==================== -->
+  <section class="testimonials-section reveal">
+    <span class="section-badge">Depoimentos</span>
+    <h2>O Que Nossos Hóspedes Dizem</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="user-profile">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Mariana Silva">
+          <div class="user-info">
+            <h4>Mariana Silva</h4>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"A estadia na Villa Ocean Front superou todas as nossas expectativas. O atendimento e os detalhes da suíte são impecáveis!"</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-profile">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Carlos Eduardo">
+          <div class="user-info">
+            <h4>Carlos Eduardo</h4>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"Processo de reserva super rápido e seguro. A equipe de concierge garantiu uma viagem memorável para toda a família."</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-profile">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Fernanda Lima">
+          <div class="user-info">
+            <h4>Fernanda Lima</h4>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p>"Ambiente calmo, aconchegante e extremamente elegante. Com certeza voltaremos em nossas próximas férias!"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BANNER CTA INFERIOR ==================== -->
+  <section class="cta-banner-section reveal">
+    <div class="cta-banner">
+      <div class="cta-content">
+        <div class="cta-icon-box"><i class="fa-solid fa-hotel"></i></div>
+        <div class="cta-text">
+          <h3>Pronto para Viver uma Experiência Inesquecível?</h3>
+          <p>Junte-se a milhares de hóspedes satisfeitos e garanta o seu refúgio de luxo.</p>
+        </div>
+      </div>
+      <a href="#" onclick="event.preventDefault();" class="btn-cta-white">Reservar Agora <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>&copy; 2026 Aura Resort & Luxury Stay. Todos os direitos reservados. Projeto Fictício para Portfólio.</p>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 80;
+
+        if (elementTop < windowHeight - revealPoint) {
+          element.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

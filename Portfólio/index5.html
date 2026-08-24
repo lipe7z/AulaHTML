@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BODRIN | Cafeteria Artesanal </title>
+  
+  <!-- Google Fonts: Outfit & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==================== PALETA DE CORES ==================== */
+    :root {
+      --bg-coffee-dark: #140d0a;
+      --card-glass: rgba(45, 30, 24, 0.55);
+      --card-glass-hover: rgba(60, 40, 32, 0.7);
+      --border-glass: rgba(255, 220, 190, 0.08);
+      --accent-sage: #4e837c;
+      --accent-sage-hover: #3d6a64;
+      --accent-gold: #e6b06c;
+      --text-white: #f7f2ed;
+      --text-muted: #b3a296;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-coffee-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(120, 70, 45, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(78, 131, 124, 0.12) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ==================== HEADER ==================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-decoration: none;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: default;
+    }
+
+    .nav-pill {
+      background: rgba(35, 22, 17, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      padding: 8px 24px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-pill a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .nav-pill a:hover, .nav-pill a.active {
+      color: var(--text-white);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card-glass);
+      border: 1px solid var(--border-glass);
+      color: var(--text-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .btn-order-pill {
+      background: var(--accent-sage);
+      color: var(--text-white);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(78, 131, 124, 0.3);
+      cursor: default;
+    }
+
+    /* ==================== MAIN CONTAINER ==================== */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 130px 20px 60px;
+    }
+
+    /* ==================== HERO SECTION ==================== */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 70px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+      max-width: 520px;
+    }
+
+    .btn-sage {
+      background: var(--accent-sage);
+      color: var(--text-white);
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(78, 131, 124, 0.35);
+      cursor: default;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .img-box {
+      width: 100%;
+      max-width: 380px;
+      height: 380px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(78, 131, 124, 0.2), rgba(35, 22, 17, 0.8));
+      border: 1px solid var(--border-glass);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .img-box i {
+      font-size: 5rem;
+      color: var(--accent-gold);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ==================== CARDÁPIO / TOP ==================== */
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .top-card {
+      background: var(--card-glass);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 25px 20px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .top-card:hover {
+      background: var(--card-glass-hover);
+      border-color: rgba(230, 176, 108, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .card-icon-box {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: rgba(230, 176, 108, 0.1);
+      border: 1px solid rgba(230, 176, 108, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+    }
+
+    .badge-rating {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-glass);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .top-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .top-card p {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-bottom: 20px;
+      min-height: 40px;
+    }
+
+    .top-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .btn-add {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-glass);
+      color: var(--accent-sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+    }
+
+    .see-menu-link {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 80px;
+    }
+
+    .see-menu-link a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--text-muted);
+      cursor: default;
+    }
+
+    /* ==================== SESSÃO DIFERENCIAIS ==================== */
+    .bodrin-section {
+      margin-bottom: 80px;
+    }
+
+    .bodrin-title {
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+    }
+
+    .bodrin-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .bodrin-col {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .bodrin-card {
+      position: relative;
+    }
+
+    .bodrin-card .num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.08);
+      position: absolute;
+      top: -25px;
+      left: -10px;
+      z-index: 0;
+    }
+
+    .bodrin-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bodrin-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bodrin-center {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .center-cup-box {
+      width: 220px;
+      height: 300px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(230, 176, 108, 0.15), rgba(20, 13, 10, 0.9));
+      border: 1px solid var(--border-glass);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .center-cup-box i {
+      font-size: 4rem;
+      color: var(--accent-gold);
+    }
+
+    /* ==================== QUIZ BANNER ==================== */
+    .quiz-banner {
+      background: var(--card-glass);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 35px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .quiz-content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .btn-gold-glass {
+      background: rgba(230, 176, 108, 0.15);
+      border: 1px solid rgba(230, 176, 108, 0.3);
+      color: var(--accent-gold);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      border-top: 1px solid var(--border-glass);
+      padding: 40px 20px 20px;
+      margin-top: 80px;
+      background: rgba(15, 10, 8, 0.8);
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* BOTÃO FLUTUANTE */
+    .float-wa {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 55px;
+      height: 55px;
+      background-color: rgba(78, 131, 124, 0.8);
+      color: #fff;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      z-index: 1000;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    /* ANIMAÇÃO REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .bodrin-grid {
+        grid-template-columns: 1fr;
+      }
+      .quiz-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-pill {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" onclick="event.preventDefault();" class="logo">BODRIN</a>
+
+      <ul class="nav-pill">
+        <li><a href="#" onclick="event.preventDefault();" class="active">Início</a></li>
+        <li><a href="#" onclick="event.preventDefault();">Cardápio</a></li>
+        <li><a href="#" onclick="event.preventDefault();">Sobre Nós</a></li>
+        <li><a href="#" onclick="event.preventDefault();">Diferenciais</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#" onclick="event.preventDefault();" class="social-btn" title="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="#" onclick="event.preventDefault();" class="social-btn" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" onclick="event.preventDefault();" class="btn-order-pill">Fazer Pedido</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-container">
+
+    <!-- HERO SECTION -->
+    <section class="hero-grid reveal">
+      <div class="hero-text">
+        <h1>Descubra o sabor supremo em cada gole!</h1>
+        <p>Para nós, o café não é apenas uma bebida, é uma arte culinária. Convidamos você para uma jornada sensorial única, onde cada gole é um encontro com o sabor perfeito.</p>
+        <a href="#" onclick="event.preventDefault();" class="btn-sage">Escolher Café</a>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="img-box">
+          <i class="fa-solid fa-mug-hot"></i>
+          <span style="font-family: 'Outfit'; font-weight: 700; font-size: 1.2rem; color: var(--text-white);">BODRIN Special Blend</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDÁPIO / TOP -->
+    <section class="reveal">
+      <div class="top-grid">
+
+        <!-- Card 1 -->
+        <div class="top-card">
+          <span class="badge-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+          <div class="card-icon-box"><i class="fa-solid fa-whiskey-glass"></i></div>
+          <h3>Cappuccino</h3>
+          <p>20% espresso, 40% leite vaporizado e 40% espuma cremosa de leite.</p>
+          <div class="top-card-footer">
+            <span class="price">R$ 12,00</span>
+            <button onclick="event.preventDefault();" class="btn-add"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="top-card">
+          <span class="badge-rating"><i class="fa-solid fa-star"></i> 5.0</span>
+          <div class="card-icon-box"><i class="fa-solid fa-mug-saucer"></i></div>
+          <h3>Latte</h3>
+          <p>30% espresso e 70% de leite fresco suave e vaporizado.</p>
+          <div class="top-card-footer">
+            <span class="price">R$ 14,00</span>
+            <button onclick="event.preventDefault();" class="btn-add"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="top-card">
+          <span class="badge-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+          <div class="card-icon-box"><i class="fa-solid fa-glass-water"></i></div>
+          <h3>Mocha</h3>
+          <p>20% espresso, 50% leite quente e 30% de calda de chocolate nobre.</p>
+          <div class="top-card-footer">
+            <span class="price">R$ 14,00</span>
+            <button onclick="event.preventDefault();" class="btn-add"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="see-menu-link">
+        <a href="#" onclick="event.preventDefault();">Ir para o cardápio completo</a>
+      </div>
+    </section>
+
+    <!-- SESSÃO DIFERENCIAIS -->
+    <section class="bodrin-section reveal">
+      <h2 class="bodrin-title">BODRIN É...</h2>
+
+      <div class="bodrin-grid">
+        <!-- Coluna Esquerda -->
+        <div class="bodrin-col">
+          <div class="bodrin-card">
+            <span class="num">1</span>
+            <h4>Alta qualidade dos grãos</h4>
+            <p>Nossa paixão pelo café começa na seleção rigorosa dos grãos. Cuidamos de cada detalhe para que você encontre perfeição em sua xícara.</p>
+          </div>
+
+          <div class="bodrin-card">
+            <span class="num">2</span>
+            <h4>Atmosfera de inspiração</h4>
+            <p>Nosso refúgio aconchegante foi pensado para ser um espaço de calma, inspiração e boas conversas, acompanhado pelo aroma incomparável do café.</p>
+          </div>
+        </div>
+
+        <!-- Elemento Central -->
+        <div class="bodrin-center">
+          <div class="center-cup-box">
+            <i class="fa-solid fa-box-archive"></i>
+            <span style="font-family: 'Outfit'; font-weight: 700; letter-spacing: 1px;">BODRIN CUP</span>
+          </div>
+          <a href="#" onclick="event.preventDefault();" class="btn-sage" style="margin-top: 25px;">Pedir Agora</a>
+        </div>
+
+        <!-- Coluna Direita -->
+        <div class="bodrin-col">
+          <div class="bodrin-card">
+            <span class="num">3</span>
+            <h4>Atendimento individual</h4>
+            <p>Preparamos cada bebida refletindo suas preferências pessoais, criando um momento exclusivo para tornar sua visita inesquecível.</p>
+          </div>
+
+          <div class="bodrin-card">
+            <span class="num">4</span>
+            <h4>Equipe de baristas</h4>
+            <p>Nossos baristas possuem vasta experiência no preparo de cafés especiais e estão prontos para demonstrar todo o seu talento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ BANNER -->
+    <section class="quiz-banner reveal">
+      <div class="quiz-content">
+        <h3>Descubra qual café combina mais com o seu momento</h3>
+      </div>
+      <a href="#" onclick="event.preventDefault();" class="btn-gold-glass">Fazer o Teste</a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <a href="#" onclick="event.preventDefault();" class="logo">BODRIN</a>
+      <div class="copy">&copy; 2026 BODRIN Cafeteria Artesanal. Projeto para Portfólio.</div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <a href="#" onclick="event.preventDefault();" class="float-wa" title="Fazer Pedido">
+    <i class="fa-solid fa-coffee"></i>
+  </a>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+          element.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crust Pizza Co. | Pizza Artesanal (Portfólio)</title>
+
+    <!-- Google Fonts: Oswald & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== PALETA & ESTILO BASE ==================== */
+        :root {
+            --bg-light: #f6f5f2;
+            --bg-white: #ffffff;
+            --bg-dark: #191919;
+            --accent-red: #e63946;
+            --accent-orange: #ff6b35;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --text-light: #f8f9fa;
+            --border-color: #e2e0d8;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ==================== ANIMAÇÕES CSS ==================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes floatPizza {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(2deg);
+            }
+        }
+
+        @keyframes pulseBadge {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            }
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            background-color: var(--bg-light);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            z-index: 100;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            cursor: default;
+        }
+
+        .logo-badge {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #d4af37;
+            animation: pulseBadge 4s infinite ease-in-out;
+        }
+
+        .logo-badge span.top {
+            font-size: 0.55rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        .logo-badge span.main {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .logo-badge span.sub {
+            font-size: 0.5rem;
+            letter-spacing: 1px;
+            color: #aaa;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-red);
+        }
+
+        .btn-order-top {
+            background-color: var(--accent-orange);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .btn-order-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(255, 107, 53, 0.45);
+        }
+
+        /* ==================== HERO PIZZA DIAL ==================== */
+        .hero-section {
+            padding: 40px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .size-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .size-selector span.label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-right: 10px;
+        }
+
+        .size-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .size-btn.active {
+            background: var(--bg-dark);
+            color: #fff;
+            border-color: var(--bg-dark);
+            transform: scale(1.1);
+        }
+
+        .pizza-dial-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .flavors-arc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .flavor-item {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .flavor-item.active {
+            color: var(--accent-red);
+            font-size: 0.88rem;
+            transform: scale(1.08);
+        }
+
+        /* Circle Pizza (Sem botão "Peça Agora") */
+        .hero-pizza-box {
+            width: 380px;
+            height: 380px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: radial-gradient(circle, #e25822 0%, #a8320a 100%);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border: 8px solid #fff;
+            position: relative;
+            animation: floatPizza 5s ease-in-out infinite;
+            transition: var(--transition);
+        }
+
+        .hero-pizza-box:hover {
+            box-shadow: 0 30px 50px rgba(226, 88, 34, 0.35);
+        }
+
+        .hero-pizza-box i {
+            font-size: 6rem;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .hero-pizza-box:hover i {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .hero-pizza-box h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* ==================== STRIP BUSCA DE UNIDADES ==================== */
+        .finder-strip {
+            max-width: 800px;
+            margin: 40px auto -30px;
+            background: var(--bg-dark);
+            border-radius: 40px;
+            padding: 10px 15px 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 20;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .finder-strip:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .finder-brand {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .finder-input-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #aaa;
+            font-size: 0.85rem;
+            flex: 1;
+            margin: 0 30px;
+        }
+
+        .finder-input-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        .btn-find {
+            background: var(--bg-white);
+            color: var(--text-dark);
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .btn-find:hover {
+            background: var(--accent-orange);
+            color: #fff;
+        }
+
+        /* ==================== SESSÃO UNIDADES ==================== */
+        .locations-section {
+            background-color: var(--bg-white);
+            padding: 90px 20px 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title-main {
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+
+        .locations-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tab-item {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .tab-item.active {
+            color: var(--accent-red);
+            position: relative;
+        }
+
+        .tab-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-red);
+        }
+
+        .location-details-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 220px 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .courier-box {
+            text-align: center;
+            padding: 25px 20px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .courier-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-orange);
+        }
+
+        .courier-box i {
+            font-size: 3.8rem;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .courier-box:hover i {
+            transform: translateX(5px);
+        }
+
+        .courier-box h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .info-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .phone-link {
+            color: var(--accent-orange);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            cursor: default;
+        }
+
+        .map-preview-box {
+            height: 200px;
+            background: #e5e3df;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .map-preview-box:hover {
+            border-color: var(--accent-red);
+            background: #dedcd6;
+        }
+
+        .map-preview-box i {
+            font-size: 2.5rem;
+            color: var(--accent-red);
+            transition: var(--transition);
+        }
+
+        .map-preview-box:hover i {
+            transform: bounce 1s infinite;
+        }
+
+        /* ==================== CARDÁPIO / MENU ==================== */
+        .menu-section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .menu-categories-bar {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background: transparent;
+            border: 1px solid transparent;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .cat-btn.active {
+            background: var(--bg-white);
+            border-color: var(--border-color);
+            color: var(--accent-red);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .products-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .pizza-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 22px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .pizza-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-orange);
+        }
+
+        .pizza-card-img-box {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .pizza-card:hover .pizza-card-img-box {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        .pizza-card h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .pizza-card .price-tag {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .btn-card-order {
+            background: #e9e7e1;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            width: 100%;
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .btn-card-order.active {
+            background: var(--accent-orange);
+            color: #fff;
+        }
+
+        /* ==================== SOBRE / HISTÓRIA ==================== */
+        .story-section {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .story-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .gallery-stack {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .photo-box {
+            height: 180px;
+            border-radius: 12px;
+            background: #2a2a2a;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .photo-box:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-orange);
+            color: #fff;
+        }
+
+        .photo-box i {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            transition: var(--transition);
+        }
+
+        .photo-box:hover i {
+            transform: scale(1.15);
+        }
+
+        .story-text h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .story-text p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== INFO CARDS ==================== */
+        .info-cards-section {
+            background: #eae8e1;
+            padding: 50px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-cards-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-col {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .info-col:hover {
+            transform: translateY(-3px);
+        }
+
+        .info-col-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .info-col:hover .info-col-icon {
+            background: var(--accent-orange);
+            color: #fff;
+        }
+
+        .info-col-text h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-col-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--bg-light);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+            cursor: default;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .copy {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 850px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .location-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .finder-strip {
+                flex-direction: column;
+                gap: 15px;
+                border-radius: 20px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .finder-input-box {
+                margin: 0;
+            }
+
+            .hero-pizza-box {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="reveal">
+        <a href="#" onclick="event.preventDefault();" class="brand-logo">
+            <div class="logo-badge">
+                <span class="top">Original</span>
+                <span class="main">CRUST</span>
+                <span class="sub">PIZZA CO.</span>
+            </div>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="#" onclick="event.preventDefault();">Nosso Cardápio</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Eventos</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Imprensa</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Carreiras</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Fidelidade</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Franquias</a></li>
+        </ul>
+
+        <a href="#" onclick="event.preventDefault();" class="btn-order-top">
+            <i class="fa-solid fa-motorcycle"></i> Peça Online
+        </a>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section reveal">
+
+        <!-- Seletor de Tamanho -->
+        <div class="size-selector">
+            <span class="label">Tamanho:</span>
+            <div class="size-btn">P</div>
+            <div class="size-btn">M</div>
+            <div class="size-btn active">G</div>
+            <div class="size-btn">GG</div>
+        </div>
+
+        <!-- Arco de Sabores -->
+        <div class="pizza-dial-container">
+            <div class="flavors-arc">
+                <span class="flavor-item">Margherita</span>
+                <span class="flavor-item">Toscana</span>
+                <span class="flavor-item active">Crust Suprema</span>
+                <span class="flavor-item">4 Queijos</span>
+                <span class="flavor-item">Vegetariana</span>
+            </div>
+
+            <!-- Exibição Central da Pizza (Sem o botão "Peça Agora") -->
+            <div class="hero-pizza-box">
+                <i class="fa-solid fa-pizza-slice"></i>
+                <h2>Crust Suprema</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==================== ENCONTRE UMA LOJA ==================== -->
+    <div class="finder-strip reveal">
+        <span class="finder-brand">Crust Pizza</span>
+        <div class="finder-input-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" value="São Paulo, SP - Digite seu CEP ou Cidade" readonly>
+        </div>
+        <a href="#" onclick="event.preventDefault();" class="btn-find">Buscar Unidade</a>
+    </div>
+
+    <!-- ==================== UNIDADES ==================== -->
+    <section class="locations-section reveal">
+        <h2 class="section-title-main">Visite Nossas Unidades</h2>
+
+        <div class="locations-tabs">
+            <span class="tab-item active">Unidade Jardins</span>
+            <span class="tab-item">Unidade Moema</span>
+            <span class="tab-item">Unidade Pinheiros</span>
+            <span class="tab-item">Unidade Itaim</span>
+        </div>
+
+        <div class="location-details-grid">
+            <!-- Entregador -->
+            <div class="courier-box">
+                <i class="fa-solid fa-motorcycle"></i>
+                <h4>Delivery Rápido</h4>
+            </div>
+
+            <!-- Detalhes do Endereço -->
+            <div class="info-card">
+                <h3>Unidade Jardins</h3>
+                <p>Av. Mofarrej, 340 - Jardins<br>São Paulo, SP - 01423-000</p>
+
+                <h5>Horário de Funcionamento:</h5>
+                <p>Dom-Qui: 11:00 às 23:00<br>Sex-Sáb: 11:00 às 00:00</p>
+
+                <a href="#" onclick="event.preventDefault();" class="phone-link">
+                    <i class="fa-solid fa-phone"></i> (11) 3845-0990
+                </a>
+            </div>
+
+            <!-- Mapa Preview -->
+            <div class="map-preview-box">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span style="font-size: 0.85rem; font-weight: 600;">Mapa da Unidade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MENU / CARDÁPIO ==================== -->
+    <section class="menu-section reveal">
+        <h2 class="section-title-main">Nosso Cardápio</h2>
+
+        <div class="menu-categories-bar">
+            <button class="cat-btn active" onclick="event.preventDefault();"><i class="fa-solid fa-pizza-slice"></i>
+                Pizzas Gourmet</button>
+            <button class="cat-btn" onclick="event.preventDefault();"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                Crie a Sua</button>
+            <button class="cat-btn" onclick="event.preventDefault();"><i class="fa-solid fa-bowl-food"></i> Entradas &
+                Saladas</button>
+            <button class="cat-btn" onclick="event.preventDefault();"><i class="fa-solid fa-utensils"></i>
+                Massas</button>
+        </div>
+
+        <div class="products-cards-grid">
+
+            <!-- Card 1 -->
+            <div class="pizza-card">
+                <div class="pizza-card-img-box"><i class="fa-solid fa-pizza-slice"></i></div>
+                <h4>The Blanco</h4>
+                <span class="price-tag">A partir de R$ 49,90</span>
+                <a href="#" onclick="event.preventDefault();" class="btn-card-order active">Peça Agora</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="pizza-card">
+                <div class="pizza-card-img-box" style="background: linear-gradient(135deg, #11998e, #38ef7d);"><i
+                        class="fa-solid fa-pizza-slice"></i></div>
+                <h4>Tuscany</h4>
+                <span class="price-tag">A partir de R$ 52,90</span>
+                <a href="#" onclick="event.preventDefault();" class="btn-card-order">Peça Agora</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="pizza-card">
+                <div class="pizza-card-img-box" style="background: linear-gradient(135deg, #eb3349, #f45c43);"><i
+                        class="fa-solid fa-pizza-slice"></i></div>
+                <h4>The Jerk</h4>
+                <span class="price-tag">A partir de R$ 54,90</span>
+                <a href="#" onclick="event.preventDefault();" class="btn-card-order">Peça Agora</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="pizza-card">
+                <div class="pizza-card-img-box" style="background: linear-gradient(135deg, #4776e6, #8e54e9);"><i
+                        class="fa-solid fa-pizza-slice"></i></div>
+                <h4>Old Smokey</h4>
+                <span class="price-tag">A partir de R$ 56,90</span>
+                <a href="#" onclick="event.preventDefault();" class="btn-card-order">Peça Agora</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== SOBRE / HISTÓRIA ==================== -->
+    <section class="story-section reveal">
+        <div class="story-container">
+
+            <div class="gallery-stack">
+                <div class="photo-box"><i class="fa-solid fa-fire-burner"></i><span>Forno a Lenha</span></div>
+                <div class="photo-box"><i class="fa-solid fa-wheat-awn"></i><span>Massa Artesanal</span></div>
+                <div class="photo-box"><i class="fa-solid fa-cheese"></i><span>Ingredientes Frescos</span></div>
+                <div class="photo-box"><i class="fa-solid fa-wine-glass"></i><span>Ambiente Familiar</span></div>
+            </div>
+
+            <div class="story-text">
+                <h2>Pizza de Massa Fina Estilo Artesanal Que Todos Amam</h2>
+                <p>A Crust Pizza é o ponto de encontro local perfeito para saborear pizzas deliciosas, feitas do zero
+                    com ingredientes selecionados, servidas em um ambiente acolhedor e familiar.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== INFORMAÇÕES ADICIONAIS ==================== -->
+    <section class="info-cards-section reveal">
+        <div class="info-cards-grid">
+
+            <div class="info-col">
+                <div class="info-col-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                <div class="info-col-text">
+                    <h4>Buffet & Eventos</h4>
+                    <p>Oferecemos serviços completos de catering para festas, empresas e celebrações de 50 a 1000
+                        pessoas.</p>
+                </div>
+            </div>
+
+            <div class="info-col">
+                <div class="info-col-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="info-col-text">
+                    <h4>Trabalhe Conosco</h4>
+                    <p>Na Crust Pizza, nossas pessoas são nosso maior patrimônio. Venha fazer parte do nosso time!</p>
+                </div>
+            </div>
+
+            <div class="info-col">
+                <div class="info-col-icon"><i class="fa-solid fa-store"></i></div>
+                <div class="info-col-text">
+                    <h4>Seja um Franqueado</h4>
+                    <p>Abra sua própria unidade Crust Pizza e faça parte de uma das marcas que mais crescem no segmento.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#" onclick="event.preventDefault();">Nosso Cardápio</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Eventos</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Imprensa</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Carreiras</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Fidelidade</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Franquias</a></li>
+        </ul>
+
+        <div class="social-icons">
+            <a href="#" onclick="event.preventDefault();" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" onclick="event.preventDefault();" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+
+        <p class="copy">&copy; 2026 Crust Pizza Co. Todos os direitos reservados. Projeto Fictício para Portfólio.</p>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Animação Scroll Reveal
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 80;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+
+</body>
+
+</html>

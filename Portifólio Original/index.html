@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LF Designer Gráfico | Web Developer & UI Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #09090b; 
+            --bg-card: #18181b; 
+            --primary: #a855f7; 
+            --primary-light: #c084fc;
+            --primary-dark: #7e22ce;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #27272a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Rolagem suave ativada */
+        }
+
+        body {
+            background-color: var(--bg-main);
+            background-image: linear-gradient(to bottom, rgba(168, 85, 247, 0.12) 0%, rgba(9, 9, 11, 0) 1200px);
+            background-repeat: no-repeat;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
+            margin: 1rem 0;
+        }
+
+        /* --- NAVBAR FLUTUANTE --- */
+        .navbar-wrapper {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .navbar {
+            background: rgba(24, 24, 27, 0.7);
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 50px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80vh;
+            position: relative;
+            padding-top: 10rem; 
+        }
+
+        .hero-tag {
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
+        }
+
+        .hero h1 span {
+            color: var(--text-main);
+            display: block;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-light);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .service-number {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 280px; 
+            background-color: #111;
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: top; 
+            opacity: 0.85;
+            transition: all 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            opacity: 1;
+            transform: scale(1.05); 
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .project-link {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        .process-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .process-item {
+            display: flex;
+            gap: 1.5rem;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .process-item:hover {
+            border-color: var(--primary);
+        }
+
+        .process-number {
+            background: var(--primary);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .process-text h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 20px 40px rgba(126, 34, 206, 0.2);
+        }
+
+        .contact-section h2 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-dark {
+            background: var(--bg-main);
+            color: #fff;
+        }
+
+        .btn-dark:hover {
+            background: #111;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--primary-dark);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .contact-section h2 { font-size: 2rem; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <a href="#inicio" class="nav-brand">LF <span>DESIGN</span></a>
+            <div class="nav-links">
+                <a href="#inicio">Início</a>
+                <a href="#servicos">O que faço</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#processo">Processo</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <a href="https://wa.me/5535991340036?text=Fala%20Felipe!" class="nav-cta" target="_blank">Fazer Orçamento</a>
+        </nav>
+    </div>
+
+    <div class="container hero" id="inicio">
+        
+        <h1>PORTFÓLIO<span>2026</span></h1>
+        <p>E aí! Sou o Felipe Oliveira (LF Designer Gráfico). Crio experiências digitais de alta performance que unem design estratégico e código limpo para alavancar sua marca.</p>
+        <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-color); padding-top: 2rem; max-width: 400px;">
+            <div>
+                <h4 style="color: var(--primary-light); font-size: 1.5rem;">HTML/CSS/JS</h4>
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Front-end</span>
+            </div>
+            <div>
+                <h4 style="color: var(--primary-light); font-size: 1.5rem;">UI/UX</h4>
+                <span style="color: var(--text-muted); font-size: 0.875rem;">Design Web</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container" id="servicos">
+        <h2 class="section-title">O QUE EU FAÇO ✨</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-number">01</span>
+                <h3>Sites Institucionais</h3>
+                <p>Desenvolvimento de sites modernos e responsivos que transmitem credibilidade e autoridade para sua empresa na internet.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-number">02</span>
+                <h3>Landing Pages</h3>
+                <p>Páginas focadas 100% em conversão e velocidade. Estruturadas estrategicamente para transformar visitantes em clientes no WhatsApp.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-number">03</span>
+                <h3>Portfólios</h3>
+                <p>Design exclusivo para exibir seus trabalhos e projetos com impacto visual, destacando seu talento no mercado.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container" id="projetos">
+        <h2 class="section-title">PROJETOS EM DESTAQUE</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="aura.png" alt="Aura Resort">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <h3>AURA RESORT</h3>
+                        <p>Hotelaria de Luxo</p>
+                    </div>
+                    <a href="https://aura-resort-luxury.netlify.app" target="_blank" class="project-link">↗</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="ninja.png" alt="Ninja Burger">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <h3>NINJA BURGER</h3>
+                        <p>Cardápio Delivery</p>
+                    </div>
+                    <a href="https://ninja-burguer.netlify.app" target="_blank" class="project-link">↗</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="bodrin.png" alt="Bodrin Coffee">
+                </div>
+                <div class="project-info">
+                    <div>
+                        <h3>BODRIN COFFEE</h3>
+                        <p>Cafeteria & Experiência</p>
+                    </div>
+                    <a href="https://bodrin-coffee.netlify.app" target="_blank" class="project-link">↗</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="container" id="processo">
+        <h2 class="section-title">PROCESSO DE TRABALHO</h2>
+        <div class="process-list">
+            <div class="process-item">
+                <div class="process-number">01</div>
+                <div class="process-text">
+                    <h4>Alinhamento & Descoberta</h4>
+                    <p>Bate-papo para entender a fundo o seu negócio, seu público-alvo e os objetivos reais que o site precisa alcançar.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">02</div>
+                <div class="process-text">
+                    <h4>Design & Prototipação</h4>
+                    <p>Criação da identidade visual e layout (UI/UX) focando na melhor experiência do usuário, antes de escrever qualquer linha de código.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">03</div>
+                <div class="process-text">
+                    <h4>Desenvolvimento Limpo</h4>
+                    <p>Programação utilizando HTML, CSS e JavaScript puros, garantindo um site incrivelmente rápido, leve e 100% otimizado para celulares.</p>
+                </div>
+            </div>
+            <div class="process-item">
+                <div class="process-number">04</div>
+                <div class="process-text">
+                    <h4>Deploy & Lançamento</h4>
+                    <p>Testes rigorosos de performance e responsividade, configuração de hospedagem e o seu site no ar pronto para receber acessos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contato">
+        <div class="contact-section">
+            <h2>VAMOS CONSTRUIR ALGO INCRÍVEL JUNTOS?</h2>
+            <p>Estou disponível para novos projetos. Bora tirar essa ideia do papel de forma profissional e objetiva.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/5535991340036?text=Fala%20Felipe!%20Dei%20uma%20olhada%20no%20seu%20portf%C3%B3lio%20e%20queria%20trocar%20uma%20ideia%20sobre%20um%20projeto." class="btn btn-outline" target="_blank">
+                    Falar no WhatsApp ↗
+                </a>
+                <a href="https://instagram.com/designergrafico_lf" class="btn btn-outline" target="_blank">
+                    Ver Instagram ↗
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

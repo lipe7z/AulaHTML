@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ninja Burger | Glassmorphism Fast Food</title>
   
-  <!-- Google Fonts: Outfit & Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -364,7 +362,7 @@
       transform: scale(1.05) rotate(-2deg);
     }
 
-    /* ==================== LAYOUT DE PRODUTOS & PERSONALIZAÇÃO ==================== */
+    /* ==================== LAYOUT DE PRODUTOS & CARRINHO ==================== */
     .content-grid {
       display: grid;
       grid-template-columns: 1.6fr 1fr;
@@ -500,7 +498,7 @@
       transform: scale(1.1);
     }
 
-    /* CARD DE PERSONALIZAÇÃO (PAINEL DIREITO) */
+    /* CARD DO CARRINHO (PAINEL DIREITO) */
     .customize-card {
       background: var(--card-glass);
       border: 1px solid var(--border-glass);
@@ -514,14 +512,8 @@
     .customize-header {
       position: relative;
       margin-bottom: 20px;
-    }
-
-    .customize-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 18px;
-      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 15px;
     }
 
     .customize-title {
@@ -529,58 +521,7 @@
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 6px;
-    }
-
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 15px;
-    }
-
-    .rating i {
-      color: #ffcc00;
-    }
-
-    .customize-options {
-      margin-bottom: 25px;
-    }
-
-    .option-group-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .sizes-flex {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .size-btn {
-      flex: 1;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-glass);
-      border-radius: 12px;
-      color: var(--text-white);
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .size-btn.active, .size-btn:hover {
-      background: var(--accent-gradient);
-      border-color: transparent;
-      box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+      color: var(--accent-orange);
     }
 
     .addon-item {
@@ -592,77 +533,20 @@
       font-size: 0.9rem;
     }
 
-    /* Custom Switch Toggle */
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 44px;
-      height: 24px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(255, 255, 255, 0.15);
-      transition: .3s;
-      border-radius: 24px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 18px;
-      width: 18px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      transition: .3s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider {
-      background: var(--accent-orange);
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(20px);
-    }
-
-    .quantity-row {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    .cart-total-section {
       margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border-glass);
     }
 
-    .qty-counter {
+    .cart-total-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-glass);
-      padding: 6px 14px;
-      border-radius: 12px;
-    }
-
-    .qty-btn {
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
-
-    .qty-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
       font-weight: 700;
-      font-size: 1.05rem;
+      margin-bottom: 20px;
     }
 
     /* ==================== FOOTER ==================== */
@@ -760,7 +644,6 @@
 </head>
 <body>
 
-  <!-- ==================== NAVEGAÇÃO FIXA ==================== -->
   <header>
     <div class="nav-container">
       <a href="#" class="logo">
@@ -775,7 +658,7 @@
       </ul>
 
       <div class="header-actions">
-        <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20fazer%20um%20pedido." target="_blank" class="btn-icon wa" title="WhatsApp">
+        <a href="https://wa.me/5535991340036?text=Olá!%20Quero%20fazer%20um%20pedido." target="_blank" class="btn-icon wa" title="WhatsApp">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
         <a href="https://instagram.com" target="_blank" class="btn-icon ig" title="Instagram">
@@ -785,14 +668,11 @@
     </div>
   </header>
 
-  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
   <main class="main-container" id="inicio">
 
-    <!-- CABEÇALHO HERO -->
     <div class="reveal">
       <h1 class="hero-title">Comida Boa,<br><span>Astral Lá em Cima! 🍔</span></h1>
 
-      <!-- BARRA DE PESQUISA -->
       <div class="search-bar">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Procure seu hambúrguer favorito...">
@@ -800,7 +680,6 @@
       </div>
     </div>
 
-    <!-- NAVEGAÇÃO POR CATEGORIAS -->
     <div class="categories-grid reveal">
       <div class="category-card active">
         <i class="fa-solid fa-burger"></i>
@@ -824,13 +703,12 @@
       </div>
     </div>
 
-    <!-- BANNER PROMOCIONAL GLASS -->
     <div class="promo-banner reveal" id="promocoes">
       <div class="promo-content">
         <span class="badge-promo"><i class="fa-solid fa-fire"></i> Oferta por Tempo Limitado</span>
         <h2>Combo Burguer Apimentado</h2>
         <p>Hambúrguer artesanal duplo com molho especial picante, batata rústica GG e refrigerante bem gelado.</p>
-        <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20o%20Combo%20Burguer%20Apimentado%20com%2020%25%20OFF." target="_blank" class="btn-primary">
+        <a href="https://wa.me/5535991340036?text=Olá!%20Quero%20o%20Combo%20Burguer%20Apimentado%20com%2020%25%20OFF." target="_blank" class="btn-primary">
           <i class="fa-brands fa-whatsapp"></i> Peça Agora • 20% OFF
         </a>
       </div>
@@ -839,10 +717,8 @@
       </div>
     </div>
 
-    <!-- GRID DE CONTEÚDO (PRODUTOS + PERSONALIZAÇÃO) -->
     <div class="content-grid" id="cardapio">
 
-      <!-- COLUNA DA ESQUERDA: LISTA DE PRODUTOS POPULARES -->
       <div>
         <div class="section-header reveal">
           <h3>Mais Populares</h3>
@@ -851,7 +727,6 @@
 
         <div class="products-grid">
 
-          <!-- Card 1 -->
           <div class="product-card reveal">
             <button class="like-btn active"><i class="fa-solid fa-heart"></i></button>
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="Cheese Burger" class="product-img">
@@ -859,11 +734,10 @@
             <p class="product-desc">Pão brioche, carne artesanal 180g, queijo cheddar fatiado e molho da casa.</p>
             <div class="product-footer">
               <span class="product-price">R$ 28,90</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+              <button class="add-btn" onclick="adicionarAoCarrinho('Cheese Burger', 28.90)"><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
-          <!-- Card 2 -->
           <div class="product-card reveal">
             <button class="like-btn"><i class="fa-solid fa-heart"></i></button>
             <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=80" alt="Chicken Spicy Burger" class="product-img">
@@ -871,11 +745,10 @@
             <p class="product-desc">Empanado crocante de frango, alface americana, tomate e maionese temperada.</p>
             <div class="product-footer">
               <span class="product-price">R$ 32,90</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+              <button class="add-btn" onclick="adicionarAoCarrinho('Chicken Crispy', 32.90)"><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
-          <!-- Card 3 -->
           <div class="product-card reveal">
             <button class="like-btn"><i class="fa-solid fa-heart"></i></button>
             <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="Double Bacon Smash" class="product-img">
@@ -883,11 +756,10 @@
             <p class="product-desc">2x smash burgers 100g, tiras de bacon crocante e muçarela derretida.</p>
             <div class="product-footer">
               <span class="product-price">R$ 38,90</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+              <button class="add-btn" onclick="adicionarAoCarrinho('Double Bacon', 38.90)"><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
-          <!-- Card 4 -->
           <div class="product-card reveal">
             <button class="like-btn"><i class="fa-solid fa-heart"></i></button>
             <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=500&q=80" alt="Batata Rústica" class="product-img">
@@ -895,72 +767,33 @@
             <p class="product-desc">Batatas Rústicas temperadas com alecrim, páprica e molho cheddar cremoso.</p>
             <div class="product-footer">
               <span class="product-price">R$ 18,90</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+              <button class="add-btn" onclick="adicionarAoCarrinho('Batata Rústica', 18.90)"><i class="fa-solid fa-plus"></i></button>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- COLUNA DA DIREITA: PAINEL DE PERSONALIZAÇÃO (INSPIRADO NO MOCKUP) -->
       <div class="reveal">
         <div class="customize-card">
           <div class="customize-header">
-            <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=600&q=80" alt="Chicken Spicy Burger" class="customize-img">
-            <h3 class="customize-title">Chicken Spicy Supreme</h3>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <strong style="color: #fff;">4.8</strong> (120 avaliações)
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Hambúrguer de frango empanado crocante, alface fresca, tomate, cebola roxa e molho picante especial.</p>
+            <h3 class="customize-title"><i class="fa-solid fa-cart-shopping"></i> Seu Pedido</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Revise seus itens antes de finalizar e enviar para o WhatsApp.</p>
           </div>
 
-          <!-- OPÇÕES DE PERSONALIZAÇÃO -->
-          <div class="customize-options">
-            <div class="option-group-title">Tamanho do Lanche</div>
-            <div class="sizes-flex">
-              <button class="size-btn">Médio</button>
-              <button class="size-btn active">Grande</button>
-              <button class="size-btn">X-Large</button>
-            </div>
+          <div id="lista-carrinho" style="min-height: 150px;">
+            <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">O carrinho está vazio.</p>
+          </div>
 
-            <div class="option-group-title">Adicionais Extras</div>
+          <div class="cart-total-section">
+            <div class="cart-total-row">
+              <span>Total:</span>
+              <span id="valor-total" style="color: var(--accent-orange);">R$ 0,00</span>
+            </div>
             
-            <div class="addon-item">
-              <span>Adicionar Queijo Cheddar</span>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider"></span>
-              </label>
-            </div>
-
-            <div class="addon-item">
-              <span>Hambúrguer Extra (180g)</span>
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-              </label>
-            </div>
-
-            <div class="addon-item">
-              <span>Bacon Crocante Extra</span>
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider"></span>
-              </label>
-            </div>
-          </div>
-
-          <!-- BOTÃO DE PEDIDO VIA WHATSAPP -->
-          <div class="quantity-row">
-            <div class="qty-counter">
-              <button class="qty-btn">-</button>
-              <span class="qty-val">1</span>
-              <button class="qty-btn">+</button>
-            </div>
-            <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20pedir%201x%20Chicken%20Spicy%20Supreme%20Grande%20com%20Cheddar%20e%20Bacon." target="_blank" class="btn-primary" style="flex: 1;">
-              <i class="fa-brands fa-whatsapp"></i> Pedir • R$ 32,90
-            </a>
+            <button onclick="enviarParaWhatsApp()" class="btn-primary" style="width: 100%;">
+              <i class="fa-brands fa-whatsapp"></i> Finalizar no WhatsApp
+            </button>
           </div>
 
         </div>
@@ -970,7 +803,6 @@
 
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
   <footer>
     <div class="footer-content">
       <a href="#" class="logo">
@@ -980,7 +812,7 @@
       <p style="color: var(--text-muted); font-size: 0.9rem;">O melhor Fast Food com entrega rápida na sua região.</p>
 
       <div class="footer-socials">
-        <a href="https://wa.me/5500000000000" target="_blank" class="btn-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://wa.me/5535991340036" target="_blank" class="btn-icon wa"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="https://instagram.com" target="_blank" class="btn-icon ig"><i class="fa-brands fa-instagram"></i></a>
       </div>
 
@@ -990,12 +822,10 @@
     </div>
   </footer>
 
-  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
-  <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." class="float-wa" target="_blank" title="Fazer Pedido no WhatsApp">
+  <a href="https://wa.me/5535991340036?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." class="float-wa" target="_blank" title="Fazer Pedido no WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
     // Animação de Scroll Reveal
     function revealOnScroll() {
@@ -1015,15 +845,6 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
 
-    // Efeito de Seleção de Tamanho
-    const sizeBtns = document.querySelectorAll('.size-btn');
-    sizeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        sizeBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
-
     // Efeito de Favoritar (Coração)
     const likeBtns = document.querySelectorAll('.like-btn');
     likeBtns.forEach(btn => {
@@ -1031,6 +852,67 @@
         btn.classList.toggle('active');
       });
     });
+
+    // ==================== LÓGICA DO CARRINHO ====================
+    let carrinho = [];
+    let total = 0;
+
+    // Função para adicionar itens no carrinho
+    function adicionarAoCarrinho(nome, preco) {
+      carrinho.push({ nome, preco });
+      total += preco;
+      atualizarInterfaceCarrinho();
+    }
+
+    // Função para atualizar o visual do carrinho na tela
+    function atualizarInterfaceCarrinho() {
+      const lista = document.getElementById('lista-carrinho');
+      const elementoTotal = document.getElementById('valor-total');
+
+      // Limpa a lista atual
+      lista.innerHTML = '';
+
+      if (carrinho.length === 0) {
+        lista.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px;">O carrinho está vazio.</p>';
+      } else {
+        // Adiciona cada item do array na tela usando as classes de estilo do projeto
+        carrinho.forEach(item => {
+          lista.innerHTML += `
+            <div class="addon-item">
+              <span style="color: var(--text-white); font-weight: 500;">1x ${item.nome}</span>
+              <span style="color: var(--text-muted);">R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
+            </div>
+          `;
+        });
+      }
+
+      // Atualiza o valor total
+      elementoTotal.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Função que monta a mensagem e redireciona para o WhatsApp
+    function enviarParaWhatsApp() {
+      if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio! Adicione algum lanche antes de finalizar. 🍔');
+        return;
+      }
+
+      // O número de WhatsApp fornecido
+      const numeroWhatsApp = '5535991340036'; 
+
+      // Montagem do texto do pedido
+      let textoPedido = 'Olá, Ninja Burger! 🥷🍔 Gostaria de fazer o seguinte pedido:%0A%0A';
+      
+      carrinho.forEach(item => {
+        textoPedido += `- 1x ${item.nome} (R$ ${item.preco.toFixed(2).replace('.', ',')})%0A`;
+      });
+
+      textoPedido += `%0A*Total da compra: R$ ${total.toFixed(2).replace('.', ',')}*`;
+
+      // Redireciona o usuário para a API oficial do WhatsApp
+      const url = `https://wa.me/${numeroWhatsApp}?text=${textoPedido}`;
+      window.open(url, '_blank');
+    }
   </script>
 
 </body>

@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LF Designer Gráfico | Web Developer & UI Designer</title>
+    <title>Lumeo | Agência de Alta Performance & Web Design</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-main: #09090b; 
-            --bg-card: #18181b; 
-            --primary: #a855f7; 
-            --primary-light: #c084fc;
-            --primary-dark: #7e22ce;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #27272a;
+            --bg-main: #070609; 
+            --bg-card: #121017; 
+            --primary: #8A2BE2; 
+            --primary-light: #A855F7;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border-color: #26262B;
         }
 
         * {
@@ -27,13 +26,18 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Rolagem suave ativada */
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-main);
-            background-image: linear-gradient(to bottom, rgba(168, 85, 247, 0.12) 0%, rgba(9, 9, 11, 0) 1200px);
+            /* Gradientes inspirados na referência: luzes roxas marcantes tanto em cima quanto embaixo */
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(138, 43, 226, 0.28) 0%, transparent 40%),
+                radial-gradient(circle at 85% 90%, rgba(138, 43, 226, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(88, 28, 135, 0.1) 0%, transparent 60%);
             background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -56,7 +60,7 @@
         .divider {
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.3), transparent);
             margin: 1rem 0;
         }
 
@@ -73,7 +77,7 @@
         }
 
         .navbar {
-            background: rgba(24, 24, 27, 0.7);
+            background: rgba(18, 16, 23, 0.8);
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
@@ -84,22 +88,29 @@
             padding: 0.75rem 1.5rem;
             width: 100%;
             max-width: 1200px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         .nav-brand {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-brand img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
         }
 
         .nav-brand span {
-            color: var(--primary);
+            color: var(--primary-light);
         }
 
         .nav-links {
@@ -120,8 +131,8 @@
         }
 
         .nav-cta {
-            background: var(--primary);
-            color: #fff;
+            background: var(--primary-light);
+            color: #070609;
             padding: 0.6rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -133,57 +144,68 @@
         }
 
         .nav-cta:hover {
-            background: var(--primary-dark);
+            background: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION COM DUAS COLUNAS --- */
         .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 80vh;
-            position: relative;
-            padding-top: 10rem; 
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 2rem;
+            min-height: 90vh;
+            padding-top: 8rem;
         }
 
-        .hero-tag {
-            color: var(--primary);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1;
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.05;
             margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-content h1 span {
             color: var(--primary-light);
+            display: block;
             text-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
         }
 
-        .hero h1 span {
-            color: var(--text-main);
-            display: block;
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
         }
 
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin-bottom: 3rem;
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            filter: drop-shadow(0 25px 50px rgba(138, 43, 226, 0.25));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
         }
 
         .section-title {
             font-size: 2.5rem;
-            color: var(--primary-light);
+            color: var(--text-main);
             margin-bottom: 3rem;
             display: flex;
             align-items: center;
@@ -205,17 +227,18 @@
         }
 
         .service-card:hover {
-            border-color: var(--primary);
+            border-color: var(--primary-light);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.15);
         }
 
         .service-number {
             font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-muted);
+            color: var(--primary-light);
             font-size: 0.875rem;
             margin-bottom: 1.5rem;
             display: block;
+            font-weight: 700;
         }
 
         .service-card h3 {
@@ -245,8 +268,8 @@
         }
 
         .project-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+            border-color: var(--primary-light);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.15);
         }
 
         .project-image {
@@ -321,7 +344,7 @@
         }
         
         .process-item:hover {
-            border-color: var(--primary);
+            border-color: var(--primary-light);
         }
 
         .process-number {
@@ -336,7 +359,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             flex-shrink: 0;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
         }
 
         .process-text h4 {
@@ -350,12 +373,12 @@
         }
 
         .contact-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), #581c87);
             border-radius: 24px;
             padding: 4rem 2rem;
             text-align: center;
             margin-top: 2rem;
-            box-shadow: 0 20px 40px rgba(126, 34, 206, 0.2);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.25);
         }
 
         .contact-section h2 {
@@ -390,35 +413,43 @@
             text-transform: uppercase;
         }
 
-        .btn-dark {
-            background: var(--bg-main);
-            color: #fff;
+        .btn-neon {
+            background: var(--primary-light);
+            color: #070609;
         }
 
-        .btn-dark:hover {
-            background: #111;
+        .btn-neon:hover {
+            background: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
         }
 
         .btn-outline {
             background: transparent;
             color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-outline:hover {
             background: #fff;
-            color: var(--primary-dark);
+            color: #070609;
             border-color: #fff;
             transform: translateY(-3px);
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .contact-section h2 { font-size: 2rem; }
-            .btn-group { flex-direction: column; }
-            .btn { width: 100%; justify-content: center; }
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 8rem;
+            }
+            .hero-content p {
+                margin: 0 auto 2.5rem auto;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -426,53 +457,60 @@
 
     <div class="navbar-wrapper">
         <nav class="navbar">
-            <a href="#inicio" class="nav-brand">LF <span>DESIGN</span></a>
+            <a href="#inicio" class="nav-brand">
+                <img src="Lumeo-removebg-preview.png" alt="Lumeo Logo">
+                LUMEO<span>.</span>
+            </a>
             <div class="nav-links">
                 <a href="#inicio">Início</a>
-                <a href="#servicos">O que faço</a>
+                <a href="#servicos">O que fazemos</a>
                 <a href="#projetos">Projetos</a>
                 <a href="#processo">Processo</a>
                 <a href="#contato">Contato</a>
             </div>
-            <a href="https://wa.me/5535991340036?text=Fala%20Felipe!" class="nav-cta" target="_blank">Fazer Orçamento</a>
+            <a href="https://wa.me/5535991340036?text=Olá!%20Quero%20levar%20meu%20negócio%20para%20o%20digital%20com%20a%20Lumeo." class="nav-cta" target="_blank">Fazer Orçamento</a>
         </nav>
     </div>
 
     <div class="container hero" id="inicio">
-        
-        <h1>PORTFÓLIO<span>2026</span></h1>
-        <p>E aí! Sou o Felipe Oliveira (LF Designer Gráfico). Crio experiências digitais de alta performance que unem design estratégico e código limpo para alavancar sua marca.</p>
-        <div style="display: flex; gap: 2rem; border-top: 1px solid var(--border-color); padding-top: 2rem; max-width: 400px;">
-            <div>
-                <h4 style="color: var(--primary-light); font-size: 1.5rem;">HTML/CSS/JS</h4>
-                <span style="color: var(--text-muted); font-size: 0.875rem;">Front-end</span>
+        <div class="hero-content">
+            <h1>ILUMINAMOS SEU <span>NEGÓCIO DIGITAL</span></h1>
+            <p>A Lumeo é uma agência focada em criar experiências web de alta performance, landing pages estratégicas e identidades visuais que transformam empresas locais em autoridades no mercado.</p>
+            <div class="hero-stats" style="display: flex; gap: 2rem; border-top: 1px solid var(--border-color); padding-top: 2rem; max-width: 450px;">
+                <div>
+                    <h4 style="color: var(--primary-light); font-size: 1.5rem;">ALTA VELOCIDADE</h4>
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">Foco em conversão</span>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-light); font-size: 1.5rem;">DESIGN PREMIUM</h4>
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">Estética futurista</span>
+                </div>
             </div>
-            <div>
-                <h4 style="color: var(--primary-light); font-size: 1.5rem;">UI/UX</h4>
-                <span style="color: var(--text-muted); font-size: 0.875rem;">Design Web</span>
-            </div>
+        </div>
+        <div class="hero-image">
+            <img src="celular.png" alt="Mockup Celular Lumeo">
         </div>
     </div>
 
     <div class="divider"></div>
 
     <div class="container" id="servicos">
-        <h2 class="section-title">O QUE EU FAÇO ✨</h2>
+        <h2 class="section-title">O QUE FAZEMOS </h2>
         <div class="services-grid">
             <div class="service-card">
                 <span class="service-number">01</span>
                 <h3>Sites Institucionais</h3>
-                <p>Desenvolvimento de sites modernos e responsivos que transmitem credibilidade e autoridade para sua empresa na internet.</p>
+                <p>Desenvolvimento de plataformas modernas e responsivas que transmitem credibilidade imediata e posicionam sua empresa no topo.</p>
             </div>
             <div class="service-card">
                 <span class="service-number">02</span>
                 <h3>Landing Pages</h3>
-                <p>Páginas focadas 100% em conversão e velocidade. Estruturadas estrategicamente para transformar visitantes em clientes no WhatsApp.</p>
+                <p>Páginas estruturadas cirurgicamente para conversão. Otimizadas para transformar cliques em leads e vendas diretas no WhatsApp.</p>
             </div>
             <div class="service-card">
                 <span class="service-number">03</span>
-                <h3>Portfólios</h3>
-                <p>Design exclusivo para exibir seus trabalhos e projetos com impacto visual, destacando seu talento no mercado.</p>
+                <h3>Identidade & Portfólio</h3>
+                <p>Direção de arte e design exclusivo para destacar o seu produto ou serviço com alto impacto visual frente à concorrência.</p>
             </div>
         </div>
     </div>
@@ -480,7 +518,7 @@
     <div class="divider"></div>
 
     <div class="container" id="projetos">
-        <h2 class="section-title">PROJETOS EM DESTAQUE</h2>
+        <h2 class="section-title">PROJETOS FICTÍCIOS</h2>
         <div class="projects-grid">
             
             <div class="project-card">
@@ -533,21 +571,21 @@
             <div class="process-item">
                 <div class="process-number">01</div>
                 <div class="process-text">
-                    <h4>Alinhamento & Descoberta</h4>
-                    <p>Bate-papo para entender a fundo o seu negócio, seu público-alvo e os objetivos reais que o site precisa alcançar.</p>
+                    <h4>Imersão & Estratégia</h4>
+                    <p>Análise profunda do seu negócio e do seu público para desenhar o posicionamento ideal no ambiente digital.</p>
                 </div>
             </div>
             <div class="process-item">
                 <div class="process-number">02</div>
                 <div class="process-text">
-                    <h4>Design & Prototipação</h4>
-                    <p>Criação da identidade visual e layout (UI/UX) focando na melhor experiência do usuário, antes de escrever qualquer linha de código.</p>
+                    <h4>UI/UX Design</h4>
+                    <p>Criação do projeto visual focado na experiência do usuário, garantindo uma navegação limpa, elegante e intuitiva.</p>
                 </div>
             </div>
             <div class="process-item">
                 <div class="process-number">03</div>
                 <div class="process-text">
-                    <h4>Desenvolvimento Limpo</h4>
+                    <h4>Código de Alta Performance</h4>
                     <p>Programação utilizando HTML, CSS e JavaScript puros, garantindo um site incrivelmente rápido, leve e 100% otimizado para celulares.</p>
                 </div>
             </div>
@@ -566,8 +604,8 @@
             <h2>VAMOS CONSTRUIR ALGO INCRÍVEL JUNTOS?</h2>
             <p>Estou disponível para novos projetos. Bora tirar essa ideia do papel de forma profissional e objetiva.</p>
             <div class="btn-group">
-                <a href="https://wa.me/5535991340036?text=Fala%20Felipe!%20Dei%20uma%20olhada%20no%20seu%20portf%C3%B3lio%20e%20queria%20trocar%20uma%20ideia%20sobre%20um%20projeto." class="btn btn-outline" target="_blank">
-                    Falar no WhatsApp ↗
+                <a href="https://wa.me/5535991340036?text=Olá!%20Quero%20falar%20sobre%20um%20projeto%20com%20a%20Lumeo." class="btn btn-neon" target="_blank">
+                    Chamar no WhatsApp ↗
                 </a>
                 <a href="https://instagram.com/designergrafico_lf" class="btn btn-outline" target="_blank">
                     Ver Instagram ↗

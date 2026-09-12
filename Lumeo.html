@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lumeo - Arte 2D</title>
+    <style>
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #F0F0F0; }
+    </style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" max-width="800px">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap');
+      .title { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 600; fill: #FFFFFF; }
+      .value { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 400; fill: #E2F95A; }
+      .time { font-family: 'Inter', sans-serif; font-size: 16px; fill: #8B949E; }
+      .icon-text { font-family: 'Space Grotesk', sans-serif; font-size: 45px; font-weight: 700; fill: #FFFFFF; }
+    </style>
+  </defs>
+
+  <!-- Fundo Branco Absoluto -->
+  <rect width="800" height="800" fill="#FFFFFF"/>
+
+  <!-- Corpo do Celular (2D Flat) -->
+  <rect x="250" y="150" width="300" height="600" rx="40" fill="#141414"/>
+  
+  <!-- Tela do Celular (Roxo Lumeo) -->
+  <rect x="265" y="165" width="270" height="570" rx="30" fill="#8A2BE2"/>
+  
+  <!-- Detalhe superior da tela (Notch) -->
+  <rect x="350" y="165" width="100" height="25" rx="10" fill="#141414"/>
+
+  <!-- Ícone Flutuante 1 (Canto Superior Direito) -->
+  <g transform="translate(620, 250) rotate(15)">
+    <rect x="-45" y="-45" width="90" height="90" rx="25" fill="#0A0A0A"/>
+    <text x="0" y="16" class="icon-text" text-anchor="middle">$</text>
+  </g>
+
+  <!-- Ícone Flutuante 2 (Canto Inferior Esquerdo) -->
+  <g transform="translate(160, 620) rotate(-20)">
+    <rect x="-55" y="-55" width="110" height="110" rx="30" fill="#0A0A0A"/>
+    <text x="0" y="18" class="icon-text" text-anchor="middle" font-size="55">$</text>
+  </g>
+
+  <!-- Sombra Dura do Card (Estilo Flat Design 2D) -->
+  <rect x="160" y="415" width="480" height="140" rx="20" fill="#E2F95A"/>
+
+  <!-- Card de Notificação Principal -->
+  <rect x="150" y="400" width="480" height="140" rx="20" fill="#0A0A0A"/>
+
+  <!-- Ícone do App dentro do Card -->
+  <rect x="180" y="430" width="80" height="80" rx="20" fill="#141414" stroke="#333333" stroke-width="2"/>
+  <text x="220" y="485" class="icon-text" font-size="40" text-anchor="middle">$</text>
+
+  <!-- Textos do Card -->
+  <text x="290" y="460" class="title">Venda realizada</text>
+  <text x="290" y="505" class="value">R$ 2.987,00</text>
+  <text x="560" y="440" class="time">07:05</text>
+
+</svg>
+
+</body>
+</html>

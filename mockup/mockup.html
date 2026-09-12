@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup Cartão de Visita - FONP</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #070609;
+            margin: 0;
+            perspective: 1000px; /* Define a profundidade do 3D */
+            font-family: sans-serif;
+            overflow: hidden;
+        }
+
+        .card-container {
+            width: 450px;
+            height: 253px; /* Proporção clássica de cartão de visita */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            cursor: pointer;
+        }
+
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background-image: url('1.png');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 
+                0 20px 50px rgba(0,0,0,0.8), 
+                inset 0 0 0 1px rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        /* Efeito de brilho da luz passando pelo cartão */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                115deg, 
+                transparent 40%, 
+                rgba(255, 255, 255, 0.15) 45%, 
+                transparent 50%
+            );
+            transform: translateY(0);
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container" id="businessCard">
+        <div class="card"></div>
+    </div>
+
+    <script>
+        const cardContainer = document.getElementById('businessCard');
+        const cardGlow = document.querySelector('.card::after');
+
+        // Calcula a posição do mouse para girar o cartão em 3D
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+            
+            cardContainer.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Reseta a posição quando o mouse sai da tela
+        document.addEventListener('mouseleave', () => {
+            cardContainer.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+    </script>
+</body>
+</html>

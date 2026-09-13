@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonp | Estúdio de Criação de Sites e Desenvolvimento Web</title>
+    <meta name="description" content="Sites de alta performance, landing pages e identidades digitais que transformam negócios locais em autoridades no seu mercado.">
+    <meta name="theme-color" content="#070609">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variáveis de CSS */
+        :root {
+            --bg-main: #070609;
+            --bg-card: #121017;
+            --primary: #8A2BE2;
+            --primary-light: #A855F7;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border-color: #26262B;
+            
+            --font-logo: 'Sora', sans-serif;
+            --font-heading: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Tipografia */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: var(--primary-light);
+        }
+
+        /* Layout Utilitários */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-main);
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Header e Navegação */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        header.scrolled {
+            background-color: rgba(7, 6, 9, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+
+        .logo-container {
+            justify-self: start;
+        }
+
+        .header-actions {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 101;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: var(--font-logo);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 101;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: 0.3s;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 900px) {
+            .header-inner {
+                display: flex;
+                justify-content: space-between;
+            }
+            .nav-links, .header-cta-btn {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            nav.mobile-active {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-main);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                z-index: 100;
+            }
+            nav.mobile-active .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                font-size: 1.5rem;
+            }
+            .header-actions.mobile-active .header-cta-btn {
+                display: flex;
+                position: fixed;
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 101;
+            }
+            .logo-text {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .remote-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .remote-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10B981;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: -0.03em;
+            background: linear-gradient(to right, #FFFFFF, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            margin-top: 60px;
+            display: flex;
+        }
+
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .marquee-item::after {
+            content: '✦';
+            color: var(--primary);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Positioning */
+        .positioning {
+            text-align: center;
+        }
+
+        .positioning h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* Serviços */
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 32px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .card ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .card ul li::before {
+            content: '→';
+            color: var(--primary-light);
+        }
+
+        .code-snippet {
+            background-color: #000;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #10B981;
+        }
+
+        /* Processo */
+        .process-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-item {
+            display: flex;
+            gap: 24px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .process-num {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .process-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        
+        .process-content p {
+            color: var(--text-muted);
+        }
+
+        .process-highlight {
+            margin-top: 60px;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(138, 43, 226, 0.1) 100%);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .process-highlight h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        /* Portfólio */
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-family: var(--font-mono);
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-card p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .portfolio-journey {
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 24px;
+            font-weight: 500;
+            background-color: rgba(168, 85, 247, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* Diferenciais */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* Contato */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 100px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-box h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0 40px;
+            background-color: var(--bg-main);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* Animações On Scroll */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Acessibilidade */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+            .fade-up {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--primary-light);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container header-inner">
+            <div class="logo-container">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="Logo Fonp">
+                    <span class="logo-text">FONP</span>
+                </a>
+            </div>
+
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions" id="header-actions">
+                <a href="#contato" class="btn btn-primary header-cta-btn">Começar projeto</a>
+                <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="hero">
+            <div class="container fade-up">
+                <div class="remote-badge">Atendimento 100% Remoto para todo o Brasil</div>
+                <h1>FONP</h1>
+                <p>Sites de alta performance, landing pages e identidades digitais que transformam negócios locais em autoridades no seu mercado.</p>
+            </div>
+            
+            <div class="marquee-container fade-up">
+                <div class="marquee-content">
+                    <span class="marquee-item">Design</span>
+                    <span class="marquee-item">Desenvolvimento</span>
+                    <span class="marquee-item">Identidade</span>
+                    <span class="marquee-item">SEO</span>
+                    <span class="marquee-item">Performance</span>
+                    <span class="marquee-item">Design</span>
+                    <span class="marquee-item">Desenvolvimento</span>
+                    <span class="marquee-item">Identidade</span>
+                    <span class="marquee-item">SEO</span>
+                    <span class="marquee-item">Performance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- POSICIONAMENTO -->
+        <section id="positioning" class="positioning fade-up">
+            <div class="container">
+                <h2>O mercado está cheio de sites que são apenas bonitos. Nós construímos sites <span class="highlight">projetados para gerar resultados</span>.</h2>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="fade-up">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossos Serviços</h2>
+                    <p style="color: var(--text-muted);">Soluções completas para posicionar sua marca no digital.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="card">
+                        <h3>Design</h3>
+                        <p>Interfaces focadas na experiência do usuário, aliando estética e usabilidade.</p>
+                        <ul>
+                            <li>UI/UX Design</li>
+                            <li>Protótipos Interativos</li>
+                            <li>Identidade Visual Digital</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Desenvolvimento</h3>
+                        <p>Código limpo, moderno e otimizado para carregamento ultrarrápido.</p>
+                        <ul>
+                            <li>Sites Institucionais</li>
+                            <li>Landing Pages</li>
+                            <li>E-commerces & Blogs</li>
+                        </ul>
+                        <div class="code-snippet">
+                            &lt;fonp&gt;<br>
+                            &nbsp;&nbsp;performance="max"<br>
+                            &nbsp;&nbsp;conversion="true"<br>
+                            &lt;/fonp&gt;
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Estratégia</h3>
+                        <p>Estruturamos seu site para ser encontrado e converter visitantes em clientes.</p>
+                        <ul>
+                            <li>Otimização SEO</li>
+                            <li>Análise de Métricas (Analytics)</li>
+                            <li>Copywriting Estratégico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESSO -->
+        <section id="processo" class="fade-up">
+            <div class="container">
+                <div class="section-header text-center" style="text-align: center;">
+                    <h2 class="section-title">Como Trabalhamos</h2>
+                    <p style="color: var(--text-muted);">Um fluxo transparente, ágil e sem enrolação.</p>
+                </div>
+
+                <div class="process-list">
+                    <div class="process-item">
+                        <div class="process-num">01</div>
+                        <div class="process-content">
+                            <h3>Conversa</h3>
+                            <p>Entendemos o seu negócio, seus objetivos e o perfil do seu cliente ideal.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-num">02</div>
+                        <div class="process-content">
+                            <h3>Estratégia</h3>
+                            <p>Definimos a arquitetura da informação e a jornada que o usuário fará no site.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-num">03</div>
+                        <div class="process-content">
+                            <h3>Design</h3>
+                            <p>Criamos o visual do projeto, garantindo alinhamento total com a sua marca.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-num">04</div>
+                        <div class="process-content">
+                            <h3>Desenvolvimento</h3>
+                            <p>Transformamos o design em código responsivo, rápido e otimizado para SEO.</p>
+                        </div>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-num">05</div>
+                        <div class="process-content">
+                            <h3>Lançamento</h3>
+                            <p>Testes finais rigorosos, configuração de domínio e o site vai pro ar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-highlight">
+                    <h3>O fim do projeto é o início do resultado.</h3>
+                    <p style="color: var(--text-muted);">Depois do lançamento, entregamos uma ferramenta que trabalha todos os dias como o seu melhor vendedor online.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETOS / PORTFÓLIO -->
+        <section id="projetos" class="fade-up">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Projetos</h2>
+                    <span class="disclaimer">*Os projetos abaixo são demonstrativos/fictícios, criados para exemplificar nossa qualidade técnica.</span>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-meta">
+                            <span>Hotelaria de Luxo</span>
+                            <span>2026</span>
+                        </div>
+                        <h3>Aura Resort</h3>
+                        <div class="portfolio-journey">Atração → Desejo → Reserva</div>
+                        <p>Experiências de alto padrão e conforto absoluto em destinos paradisíacos.</p>
+                        <a href="https://aura-resort-luxury.netlify.app/" target="_blank" class="btn btn-secondary" style="width: 100%;">Abrir site</a>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div class="portfolio-meta">
+                            <span>Hamburgueria / Delivery</span>
+                            <span>2026</span>
+                        </div>
+                        <h3>Ninja Burger</h3>
+                        <div class="portfolio-journey">Fome → Visual Impactante → Pedido</div>
+                        <p>Burgers artesanais de sabor marcante entregues com velocidade e estilo.</p>
+                        <a href="https://ninja-burguer.netlify.app/" target="_blank" class="btn btn-secondary" style="width: 100%;">Abrir site</a>
+                    </div>
+
+                    <div class="portfolio-card">
+                        <div class="portfolio-meta">
+                            <span>Cafeteria & Experiência</span>
+                            <span>2026</span>
+                        </div>
+                        <h3>Bodrin Coffee</h3>
+                        <div class="portfolio-journey">Identificação → Comunidade → Visita</div>
+                        <p>O ponto de encontro perfeito para quem valoriza cafés especiais e bons momentos.</p>
+                        <a href="https://bodrin-coffee.netlify.app/" target="_blank" class="btn btn-secondary" style="width: 100%;">Abrir site</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS -->
+        <section id="diferenciais" class="fade-up">
+            <div class="container">
+                <div class="section-header text-center" style="text-align: center;">
+                    <h2 class="section-title">Por que escolher a Fonp?</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Moderno</h3>
+                        <p>Utilizamos tecnologias de ponta, fugindo de templates engessados e lentos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Rápido</h3>
+                        <p>Performance é inegociável. Sites que carregam rápido retêm mais usuários.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Personalizado</h3>
+                        <p>Desenvolvemos sob medida para a sua necessidade, do design ao código.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Estratégico</h3>
+                        <p>Tudo o que criamos tem um objetivo de negócio claro por trás.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contato" class="contact fade-up">
+            <div class="container">
+                <div class="contact-box">
+                    <h2>Vamos transformar seu negócio?</h2>
+                    <p>Tire sua ideia do papel e tenha uma identidade digital forte. Fale direto com nossos especialistas.</p>
+                    
+                    <div class="contact-actions">
+                        <a href="https://wa.me/5535999130036?text=Olá,%20quero%20começar%20um%20projeto%20com%20a%20Fonp!" target="_blank" class="btn btn-primary">Começar um projeto</a>
+                        <a href="https://wa.me/5535999130036?text=Olá,%20gostaria%20de%20tirar%20algumas%20dúvidas%20sobre%20o%20desenvolvimento%20de%20sites." target="_blank" class="btn btn-secondary">Tenho dúvidas</a>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <span>✦ Resposta em até 24h</span>
+                        <span>✦ Atendimento Remoto (Brasil)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="logo.png" alt="Logo Fonp">
+                        <span class="logo-text">FONP</span>
+                    </a>
+                    <p>Sites de alta performance e identidades digitais que transformam negócios locais em autoridades.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#processo">Processo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://instagram.com/fonp.oficial" target="_blank">Instagram (@fonp.oficial)</a></li>
+                        <li><a href="https://wa.me/5535999130036" target="_blank">WhatsApp (35) 99913-0036</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fonp. Todos os direitos reservados.</p>
+                <p>Feito para resultados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        const headerActions = document.getElementById('header-actions');
+        const navLinks = document.querySelectorAll('.nav-links a, .header-cta-btn');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navbar.classList.toggle('mobile-active');
+            headerActions.classList.toggle('mobile-active');
+            
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            if(navbar.classList.contains('mobile-active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(navbar.classList.contains('mobile-active')) {
+                    mobileMenuBtn.click();
+                }
+            });
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

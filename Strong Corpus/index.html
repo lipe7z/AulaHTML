@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academia Strong Corpus | Guaranésia - MG — Transforme Seu Corpo</title>
+  <meta name="description" content="A melhor estrutura e acompanhamento de Guaranésia - MG. Nota 4,7 no Google! Musculação, Funcional, Condicionamento e Avaliação Física na R. João Minchillo, 332." />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Orbitron (identidade futurista/forte), Rajdhani (títulos de impacto) e Inter (leitura) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome para ícones sociais e de interface -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Configuração personalizada do Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#000000',
+            charcoal: '#000000',
+            surface: '#000000',
+            gold: {
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706',
+            },
+            ember: {
+              500: '#F97316',
+              600: '#EA580C',
+              700: '#C2410C',
+            }
+          },
+          fontFamily: {
+            display: ['Orbitron', 'sans-serif'],
+            heading: ['Rajdhani', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Estilos base e customizações de alto impacto */
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Textura sutil de grade industrial / carbono no fundo preto */
+    .bg-carbon-grid {
+      background-color: #000000;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.14) 0%, rgba(0, 0, 0, 0) 60%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 44px 44px, 44px 44px;
+    }
+
+    /* Glassmorphism preto aprimorado */
+    .glass-panel {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-header {
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+    }
+
+    /* Gradiente metálico dourado/laranja inspirado na logo Strong Corpus */
+    .text-brand-gradient {
+      background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 45%, #EA580C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-brand-gradient {
+      background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+      box-shadow: 0 10px 28px -6px rgba(234, 88, 12, 0.55);
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .btn-brand-gradient:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 36px -4px rgba(245, 158, 11, 0.65);
+      filter: brightness(1.06);
+    }
+
+    /* Animação da linha de batimento cardíaco (ECG Pulse) */
+    .ecg-line-path {
+      stroke-dasharray: 650;
+      stroke-dashoffset: 650;
+      animation: ecgFlow 3.2s linear infinite;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 16px rgba(245, 158, 11, 0.6));
+    }
+
+    .ecg-logo-path {
+      stroke-dasharray: 260;
+      stroke-dashoffset: 260;
+      animation: ecgLogoFlow 2.6s ease-in-out infinite;
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+    }
+
+    @keyframes ecgFlow {
+      0% {
+        stroke-dashoffset: 650;
+        opacity: 0.2;
+      }
+      15% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: -650;
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes ecgLogoFlow {
+      0% {
+        stroke-dashoffset: 260;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: -260;
+      }
+    }
+
+    /* Animação Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Brilho sutil nos cards ao passar o mouse */
+    .card-glow {
+      position: relative;
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .card-glow:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 158, 11, 0.45);
+      box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.18);
+    }
+
+    /* Animação de onda no botão flutuante WhatsApp */
+    @keyframes whatsappRipple {
+      0% {
+        transform: scale(1);
+        opacity: 0.65;
+      }
+      100% {
+        transform: scale(1.65);
+        opacity: 0;
+      }
+    }
+
+    .whatsapp-pulse::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background-color: #22C55E;
+      z-index: -1;
+      animation: whatsappRipple 2s infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #18181B;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- ===================================================================== -->
+  <!-- 1. HEADER FIXO COM GLASSMORPHISM E LOGO ESTILIZADO STRONG CORPUS      -->
+  <!-- ===================================================================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logotipo Personalizado Inspirado na Identidade Visual Strong Corpus -->
+        <a href="#inicio" class="group flex flex-col items-center justify-center py-1 focus:outline-none" aria-label="Academia Strong Corpus Início">
+          <span class="font-display font-extrabold text-base sm:text-lg tracking-[0.22em] text-brand-gradient leading-none">
+            ACADEMIA
+          </span>
+          <!-- Linha SVG de Batimento Cardíaco Branco no centro da logo -->
+          <div class="w-40 sm:w-48 h-4 my-0.5 flex items-center justify-center overflow-hidden">
+            <svg viewBox="0 0 220 32" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 16 H70 L78 10 L86 22 L95 4 L105 29 L115 9 L123 20 L130 16 H220" stroke="rgba(255,255,255,0.22)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="ecg-logo-path" d="M0 16 H70 L78 10 L86 22 L95 4 L105 29 L115 9 L123 20 L130 16 H220" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="font-display font-black text-xs sm:text-sm tracking-[0.18em] text-brand-gradient leading-none">
+            STRONG CORPUS
+          </span>
+        </a>
+
+        <!-- Navegação Desktop -->
+        <nav class="hidden lg:flex items-center space-x-7" aria-label="Navegação Principal">
+          <a href="#inicio" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Início</a>
+          <a href="#diferenciais" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Diferenciais</a>
+          <a href="#modalidades" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Modalidades</a>
+          <a href="#planos" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Planos</a>
+          <a href="#avaliacoes" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Avaliações</a>
+          <a href="#localizacao" class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors">Localização</a>
+        </nav>
+
+        <!-- Ações Desktop: Redes Sociais + CTA WhatsApp -->
+        <div class="hidden md:flex items-center space-x-3">
+          <a href="https://instagram.com/strongcorpus" target="_blank" rel="noopener noreferrer" 
+             class="w-10 h-10 rounded-xl bg-black border border-zinc-800 hover:border-amber-500/60 flex items-center justify-center text-zinc-300 hover:text-amber-400 transition-all"
+             aria-label="Instagram @strongcorpus" title="Siga @strongcorpus no Instagram">
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+          <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20Academia%20Strong%20Corpus!" 
+             target="_blank" rel="noopener noreferrer"
+             class="btn-brand-gradient px-5 py-2.5 rounded-xl font-heading font-bold text-sm uppercase tracking-wider text-black flex items-center gap-2">
+            <i class="fab fa-whatsapp text-base"></i>
+            <span>Aula Experimental</span>
+          </a>
+        </div>
+
+        <!-- Botão Menu Hambúrguer Mobile -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20Strong%20Corpus." 
+             target="_blank" rel="noopener noreferrer"
+             class="md:hidden px-3 py-2 rounded-lg btn-brand-gradient text-black font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fab fa-whatsapp"></i>
+            <span>Agendar</span>
+          </a>
+          <button id="mobile-menu-btn" type="button" 
+                  class="p-2.5 rounded-xl bg-black border border-zinc-800 text-zinc-200 hover:text-amber-400 hover:border-amber-500/50 focus:outline-none transition-colors"
+                  aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir Menu">
+            <i id="menu-icon" class="fas fa-bars text-xl w-6 h-6 flex items-center justify-center"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-black/95 backdrop-blur-xl border-b border-zinc-800 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+      <a href="#inicio" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-950 hover:text-amber-400 transition-colors">Início</a>
+      <a href="#diferenciais" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-950 hover:text-amber-400 transition-colors">Diferenciais</a>
+      <a href="#modalidades" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-950 hover:text-amber-400 transition-colors">Modalidades</a>
+      <a href="#planos" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-950 hover:text-amber-400 transition-colors">Planos e Mensalidades</a>
+      <a href="#avaliacoes" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-950 hover:text-amber-400 transition-colors">Avaliações (4,7 ★)</a>
+      <a href="#localizacao" class="mobile-nav-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-200 hover:bg-zinc-950 hover:text-amber-400 transition-colors">Localização e Horários</a>
+      
+      <div class="pt-4 border-t border-zinc-800 flex flex-col sm:flex-row gap-3">
+        <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20agendar%20minha%20aula%20experimental%20na%20Strong%20Corpus!" 
+           target="_blank" rel="noopener noreferrer"
+           class="btn-brand-gradient w-full py-3.5 px-4 rounded-xl font-heading font-bold text-center text-black uppercase tracking-wider flex items-center justify-center gap-2">
+          <i class="fab fa-whatsapp text-lg"></i>
+          <span>Agendar Aula Experimental</span>
+        </a>
+        <a href="https://instagram.com/strongcorpus" target="_blank" rel="noopener noreferrer"
+           class="w-full py-3.5 px-4 rounded-xl bg-black border border-zinc-700 hover:border-amber-500 text-white font-heading font-bold text-center uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+          <i class="fab fa-instagram text-lg text-amber-400"></i>
+          <span>@strongcorpus</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- 2. HERO SECTION IMPACTANTE                                            -->
+  <!-- ===================================================================== -->
+  <section id="inicio" class="relative min-h-screen flex items-center pt-28 pb-20 lg:pt-32 lg:pb-24 bg-carbon-grid overflow-hidden">
+    
+    <!-- Brilhos radiais de atmosfera -->
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-amber-500/15 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-10 -right-32 w-96 h-96 bg-orange-600/15 rounded-full blur-[130px] pointer-events-none"></div>
+
+    <!-- Pulso SVG gigante no plano de fundo -->
+    <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-30 pointer-events-none select-none">
+      <svg viewBox="0 0 1440 220" class="w-full h-44 sm:h-64" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 110 H460 L495 75 L530 145 L575 20 L625 200 L675 55 L715 135 L745 110 H1440" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+        <path class="ecg-line-path" d="M0 110 H460 L495 75 L530 145 L575 20 L625 200 L675 55 L715 135 L745 110 H1440" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Coluna Principal de Conversão -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-7">
+          
+          <!-- Selo de Prova Social Google 4.7 -->
+          <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2.5 px-4 py-2 rounded-full glass-panel border border-amber-500/30 shadow-lg">
+            <div class="flex items-center text-amber-400 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-xs sm:text-sm font-semibold text-white">4,7 no Google</span>
+            <span class="text-zinc-500">•</span>
+            <span class="text-xs sm:text-sm text-zinc-300">82 avaliações reais em Guaranésia</span>
+          </div>
+
+          <!-- Título de Alta Conversão -->
+          <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-[3.35rem] leading-[1.12] tracking-tight uppercase">
+            TRANSFORME SEU CORPO E <span class="text-brand-gradient">SUPERE SEUS LIMITES</span> EM GUARANÉSIA
+          </h1>
+
+          <!-- Subtítulo focado em resultados, saúde e acolhimento -->
+          <p class="text-base sm:text-lg lg:text-xl text-zinc-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            Treinamento de primeira linha, equipamentos modernos e instrutores nota 10 que acompanham sua evolução de perto. Venha descobrir por que somos considerados a <strong class="text-white font-semibold">"segunda casa"</strong> de quem busca saúde, força e alta performance.
+          </p>
+
+          <!-- Botões de Ação (CTAs) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Quero%20agendar%20minha%20Aula%20Experimental%20na%20Academia%20Strong%20Corpus!" 
+               target="_blank" rel="noopener noreferrer"
+               class="btn-brand-gradient w-full sm:w-auto px-8 py-4 rounded-2xl font-heading font-bold text-lg uppercase tracking-wider text-black flex items-center justify-center gap-3">
+              <i class="fab fa-whatsapp text-2xl"></i>
+              <span>Agendar Aula Experimental</span>
+            </a>
+
+            <a href="#planos" 
+               class="w-full sm:w-auto px-7 py-4 rounded-2xl glass-panel border border-zinc-700 hover:border-amber-500/70 hover:bg-black text-white font-heading font-bold text-lg uppercase tracking-wider flex items-center justify-center gap-3 transition-all">
+              <i class="fas fa-tags text-lg text-amber-400"></i>
+              <span>Ver Planos</span>
+            </a>
+          </div>
+
+          <!-- Micro-indicadores de Status e Localização -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm text-zinc-400">
+            <div class="flex items-center gap-2">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span class="text-zinc-200 font-medium">Aberto até 21:00</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-map-marker-alt text-amber-500"></i>
+              <span>R. João Minchillo, 332 — Bom Jesus, Guaranésia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Emblema / Monitor de Pulso Strong Corpus -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md animate-float">
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-amber-500/40 via-orange-600/20 to-white/10 blur-lg opacity-80"></div>
+            
+            <div class="relative glass-panel rounded-3xl p-7 sm:p-9 border border-amber-500/30 shadow-2xl overflow-hidden">
+              <!-- Topo do Card: Status BPM -->
+              <div class="flex items-center justify-between border-b border-zinc-800 pb-4 mb-6">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                    <i class="fas fa-heartbeat"></i>
+                  </div>
+                  <div>
+                    <p class="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold">Frequência & Foco</p>
+                    <p class="text-sm font-bold text-white">STRONG CORPUS CLUB</p>
+                  </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-400 font-display text-xs font-bold border border-amber-500/30">
+                  GUARANÉSIA • MG
+                </span>
+              </div>
+
+              <!-- Identidade Visual Centralizada Recriada em Alta Definição -->
+              <div class="py-6 px-3 rounded-2xl bg-black border border-zinc-800/90 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none"></div>
+                <p class="font-display font-black text-2xl sm:text-3xl tracking-[0.22em] text-brand-gradient">
+                  ACADEMIA
+                </p>
+                
+                <!-- Pulso Cardíaco Branco em Destaque -->
+                <div class="my-3 h-16 flex items-center justify-center">
+                  <svg viewBox="0 0 320 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 32 H95 L108 18 L120 46 L135 6 L152 58 L168 14 L182 42 L194 32 H320" stroke="rgba(255,255,255,0.16)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="ecg-line-path" d="M0 32 H95 L108 18 L120 46 L135 6 L152 58 L168 14 L182 42 L194 32 H320" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+
+                <p class="font-display font-black text-xl sm:text-2xl tracking-[0.16em] text-brand-gradient">
+                  STRONG CORPUS
+                </p>
+              </div>
+
+              <!-- Métricas Reais de Credibilidade com Contadores -->
+              <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-zinc-800 text-center">
+                <div class="p-2.5 rounded-xl bg-black border border-zinc-800/80">
+                  <div class="font-display font-extrabold text-xl sm:text-2xl text-amber-400">
+                    <span class="counter" data-target="4.7" data-decimals="1">0.0</span>★
+                  </div>
+                  <p class="text-[11px] text-zinc-400 mt-0.5 uppercase tracking-wider">Nota Google</p>
+                </div>
+                <div class="p-2.5 rounded-xl bg-black border border-zinc-800/80">
+                  <div class="font-display font-extrabold text-xl sm:text-2xl text-white">
+                    +<span class="counter" data-target="82" data-decimals="0">0</span>
+                  </div>
+                  <p class="text-[11px] text-zinc-400 mt-0.5 uppercase tracking-wider">Avaliações</p>
+                </div>
+                <div class="p-2.5 rounded-xl bg-black border border-zinc-800/80">
+                  <div class="font-display font-extrabold text-xl sm:text-2xl text-orange-500">
+                    100%
+                  </div>
+                  <p class="text-[11px] text-zinc-400 mt-0.5 uppercase tracking-wider">Foco em Você</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 3. SEÇÃO DE DIFERENCIAIS ("POR QUE TREINAR NA STRONG CORPUS?")        -->
+  <!-- ===================================================================== -->
+  <section id="diferenciais" class="py-20 lg:py-28 bg-black relative border-t border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">
+          Excelência em Guaranésia
+        </span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-tight text-white">
+          Por que treinar na <span class="text-brand-gradient">Strong Corpus?</span>
+        </h2>
+        <p class="mt-4 text-zinc-400 text-base sm:text-lg">
+          Unimos estrutura completa, acompanhamento técnico próximo e uma energia contagiante para você manter a constância e alcançar seus objetivos.
+        </p>
+      </div>
+
+      <!-- Grid de 4 Diferenciais -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl uppercase tracking-wide text-white mb-3">
+              Equipamentos de Primeira Linha
+            </h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Aparelhos biomecanicamente precisos, anilhas, halteres e espaço amplo para garantir segurança, conforto e máximo estímulo muscular em cada série.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-semibold text-amber-400">
+            <i class="fas fa-check-circle"></i>
+            <span>Estrutura moderna e revisada</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between" style="transition-delay: 100ms;">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6">
+              <i class="fas fa-user-shield"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl uppercase tracking-wide text-white mb-3">
+              Instrutores Nota 10
+            </h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Profissionais qualificados, presentes e atenciosos no salão. Aqui você nunca treina perdido: corrigimos sua execução e ajustamos suas cargas.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-semibold text-amber-400">
+            <i class="fas fa-star"></i>
+            <span>Elogiados pelos alunos no Google</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between" style="transition-delay: 200ms;">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl uppercase tracking-wide text-white mb-3">
+              Sua "Segunda Casa"
+            </h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Clima acolhedor, sem julgamentos, onde iniciantes e atletas avançados se sentem em casa. A motivação da nossa comunidade faz toda a diferença.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-semibold text-amber-400">
+            <i class="fas fa-users"></i>
+            <span>Ambiente familiar e motivador</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between" style="transition-delay: 300ms;">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl uppercase tracking-wide text-white mb-3">
+              Variedade de Atividades
+            </h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Opções completas de atividades físicas para hipertrofia, emagrecimento, resistência cardiovascular, mobilidade e qualidade de vida.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-semibold text-amber-400">
+            <i class="fas fa-fire"></i>
+            <span>Treinos dinâmicos e personalizados</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 4. SEÇÃO DE MODALIDADES E TREINOS                                     -->
+  <!-- ===================================================================== -->
+  <section id="modalidades" class="py-20 lg:py-28 bg-black relative border-t border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 reveal">
+        <div>
+          <span class="inline-block px-3.5 py-1 rounded-full bg-orange-600/15 border border-orange-500/30 text-orange-400 font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">
+            Programas de Treinamento
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-tight text-white">
+            Modalidades para <span class="text-brand-gradient">Cada Objetivo</span>
+          </h2>
+        </div>
+        <p class="text-zinc-400 max-w-md text-sm sm:text-base">
+          Escolha o treino ideal para o seu momento e fale diretamente com nossa equipe pelo WhatsApp para começar hoje mesmo.
+        </p>
+      </div>
+
+      <!-- Grid Interativo de Modalidades -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+        
+        <!-- Modalidade 1: Musculação e Hipertrofia -->
+        <div class="reveal group relative rounded-3xl bg-black border border-zinc-800 hover:border-amber-500/50 p-7 sm:p-9 overflow-hidden transition-all duration-300">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all"></div>
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-lg bg-amber-500/15 text-amber-400 font-heading font-bold text-xs uppercase tracking-wider">
+                  Força & Estética
+                </span>
+                <i class="fas fa-dumbbell text-2xl text-zinc-600 group-hover:text-amber-400 transition-colors"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-white uppercase mb-3">
+                Musculação e Hipertrofia
+              </h3>
+              <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                Fichas periodizadas para ganho de massa muscular, definição corporal, fortalecimento articular e aumento de força com acompanhamento contínuo dos nossos instrutores.
+              </p>
+              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 mb-8">
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-amber-500"></i> Treinos adaptados do iniciante ao avançado</li>
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-amber-500"></i> Correção postural e biomecânica em tempo real</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Muscula%C3%A7%C3%A3o%20e%20Hipertrofia%20na%20Academia%20Strong%20Corpus.%20Como%20funciona?" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full py-3.5 px-5 rounded-xl bg-black hover:bg-amber-500 text-white hover:text-black border border-zinc-700 hover:border-amber-500 font-heading font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all">
+              <i class="fab fa-whatsapp text-base"></i>
+              <span>Tenho Interesse em Musculação</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Modalidade 2: Treinamento Funcional -->
+        <div class="reveal group relative rounded-3xl bg-black border border-zinc-800 hover:border-amber-500/50 p-7 sm:p-9 overflow-hidden transition-all duration-300" style="transition-delay: 100ms;">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-orange-600/10 rounded-full blur-3xl group-hover:bg-orange-600/20 transition-all"></div>
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-lg bg-orange-500/15 text-orange-400 font-heading font-bold text-xs uppercase tracking-wider">
+                  Agilidade & Queima Calórica
+                </span>
+                <i class="fas fa-running text-2xl text-zinc-600 group-hover:text-orange-400 transition-colors"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-white uppercase mb-3">
+                Treinamento Funcional
+              </h3>
+              <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                Circuitos dinâmicos e intensos que trabalham o corpo de forma integrada, acelerando o metabolismo, melhorando equilíbrio, coordenação motora e explosão muscular.
+              </p>
+              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 mb-8">
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-orange-500"></i> Alto gasto calórico e emagrecimento saudável</li>
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-orange-500"></i> Melhora imediata da disposição no dia a dia</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Treinamento%20Funcional%20na%20Strong%20Corpus!" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full py-3.5 px-5 rounded-xl bg-black hover:bg-amber-500 text-white hover:text-black border border-zinc-700 hover:border-amber-500 font-heading font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all">
+              <i class="fab fa-whatsapp text-base"></i>
+              <span>Tenho Interesse no Funcional</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Modalidade 3: Condicionamento Físico & Cardio -->
+        <div class="reveal group relative rounded-3xl bg-black border border-zinc-800 hover:border-amber-500/50 p-7 sm:p-9 overflow-hidden transition-all duration-300">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl group-hover:bg-amber-500/20 transition-all"></div>
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-lg bg-amber-500/15 text-amber-400 font-heading font-bold text-xs uppercase tracking-wider">
+                  Saúde & Resistência
+                </span>
+                <i class="fas fa-heartbeat text-2xl text-zinc-600 group-hover:text-amber-400 transition-colors"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-white uppercase mb-3">
+                Condicionamento Físico
+              </h3>
+              <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                Programas focados em resistência cardiorrespiratória, fôlego, controle de estresse e longevidade. Ideal para quem quer cuidar do coração e ter mais energia.
+              </p>
+              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 mb-8">
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-amber-500"></i> Evolução gradual respeitando seu ritmo cardíaco</li>
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-amber-500"></i> Combate ao sedentarismo com segurança</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Quero%20informacoes%20sobre%20Condicionamento%20F%C3%ADsico%20na%20Academia%20Strong%20Corpus!" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full py-3.5 px-5 rounded-xl bg-black hover:bg-amber-500 text-white hover:text-black border border-zinc-700 hover:border-amber-500 font-heading font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all">
+              <i class="fab fa-whatsapp text-base"></i>
+              <span>Quero Melhorar Meu Condicionamento</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Modalidade 4: Avaliação Física Personalizada -->
+        <div class="reveal group relative rounded-3xl bg-black border border-zinc-800 hover:border-amber-500/50 p-7 sm:p-9 overflow-hidden transition-all duration-300" style="transition-delay: 100ms;">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-orange-600/10 rounded-full blur-3xl group-hover:bg-orange-600/20 transition-all"></div>
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-3 py-1 rounded-lg bg-orange-500/15 text-orange-400 font-heading font-bold text-xs uppercase tracking-wider">
+                  Diagnóstico & Metas
+                </span>
+                <i class="fas fa-clipboard-check text-2xl text-zinc-600 group-hover:text-orange-400 transition-colors"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl sm:text-2xl text-white uppercase mb-3">
+                Avaliação Física Completa
+              </h3>
+              <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                Mapeamento preciso da sua composição corporal, medidas, mobilidade e histórico de saúde para traçar um plano de treino assertivo e acompanhar cada conquista.
+              </p>
+              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 mb-8">
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-orange-500"></i> Acompanhamento periódico de resultados reais</li>
+                <li class="flex items-center gap-2.5"><i class="fas fa-check text-orange-500"></i> Planejamento 100% individualizado</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20minha%20Avalia%C3%A7%C3%A3o%20F%C3%ADsica%20na%20Academia%20Strong%20Corpus!" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full py-3.5 px-5 rounded-xl bg-black hover:bg-amber-500 text-white hover:text-black border border-zinc-700 hover:border-amber-500 font-heading font-bold uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all">
+              <i class="fab fa-whatsapp text-base"></i>
+              <span>Agendar Avaliação Física</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. SEÇÃO DE PLANOS E MENSALIDADES                                     -->
+  <!-- ===================================================================== -->
+  <section id="planos" class="py-20 lg:py-28 bg-black relative border-t border-zinc-800/80 overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[320px] bg-amber-500/10 blur-[130px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">
+          Investimento na Sua Saúde
+        </span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-tight text-white">
+          Planos e <span class="text-brand-gradient">Mensalidades</span>
+        </h2>
+        <p class="mt-4 text-zinc-400 text-sm sm:text-base">
+          Valores acessíveis e sem letras miúdas para você começar a treinar hoje mesmo na Strong Corpus.
+        </p>
+      </div>
+
+      <!-- Grid dos 2 Planos Mensais -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Plano 1: 3x na Semana (R$ 70) -->
+        <div class="reveal glass-panel card-glow rounded-3xl p-8 sm:p-9 border border-zinc-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-700 text-zinc-300 font-heading font-bold text-xs uppercase tracking-wider">
+                Ritmo & Constância
+              </span>
+              <i class="fas fa-calendar-check text-xl text-amber-400"></i>
+            </div>
+
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-white uppercase">
+              Plano 3x na Semana
+            </h3>
+            <p class="text-zinc-400 text-sm mt-2">
+              Ideal para quem tem rotina corrida e quer manter os treinos em dia com flexibilidade.
+            </p>
+
+            <!-- Preço -->
+            <div class="my-7 pb-7 border-b border-zinc-800/90 flex items-baseline gap-1.5">
+              <span class="text-zinc-400 font-heading font-bold text-xl">R$</span>
+              <span class="font-display font-black text-5xl text-white">70</span>
+              <span class="text-zinc-400 text-sm font-medium">/mês</span>
+            </div>
+
+            <!-- Benefícios -->
+            <ul class="space-y-3.5 text-sm text-zinc-300 mb-8">
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Treine <strong class="text-white">3 vezes por semana</strong> nos dias que preferir</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Acesso completo à sala de musculação</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Ficha de treino personalizada</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Acompanhamento dos instrutores</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%203x%20na%20Semana%20(R%24%2070%2C00)%20da%20Strong%20Corpus!" 
+             target="_blank" rel="noopener noreferrer"
+             class="w-full py-4 px-5 rounded-2xl bg-black hover:bg-amber-500 text-white hover:text-black border border-zinc-700 hover:border-amber-500 font-heading font-bold uppercase tracking-wider text-base flex items-center justify-center gap-2.5 transition-all">
+            <i class="fab fa-whatsapp text-lg"></i>
+            <span>Assinar Plano 3x/Semana</span>
+          </a>
+        </div>
+
+        <!-- Plano 2: Todos os Dias (R$ 90 - Destaque) -->
+        <div class="reveal relative glass-panel card-glow rounded-3xl p-8 sm:p-9 border-2 border-amber-500/70 shadow-[0_0_40px_rgba(245,158,11,0.16)] flex flex-col justify-between" style="transition-delay: 120ms;">
+          <!-- Selo Mais Escolhido -->
+          <div class="absolute -top-3.5 right-6 px-4 py-1 rounded-full btn-brand-gradient text-black font-heading font-extrabold text-xs uppercase tracking-widest shadow-lg">
+            Mais Escolhido
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-400 font-heading font-bold text-xs uppercase tracking-wider">
+                Acesso Livre
+              </span>
+              <i class="fas fa-fire text-xl text-amber-400"></i>
+            </div>
+
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-white uppercase">
+              Plano Todos os Dias
+            </h3>
+            <p class="text-zinc-400 text-sm mt-2">
+              Liberdade total para treinar todos os dias de funcionamento e acelerar seus resultados.
+            </p>
+
+            <!-- Preço -->
+            <div class="my-7 pb-7 border-b border-zinc-800/90 flex items-baseline gap-1.5">
+              <span class="text-amber-400 font-heading font-bold text-xl">R$</span>
+              <span class="font-display font-black text-5xl text-brand-gradient">90</span>
+              <span class="text-zinc-400 text-sm font-medium">/mês</span>
+            </div>
+
+            <!-- Benefícios -->
+            <ul class="space-y-3.5 text-sm text-zinc-200 mb-8">
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Treine <strong class="text-white">todos os dias</strong> sem restrição de frequência</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Acesso ilimitado a toda a estrutura</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Treino periodizado para hipertrofia ou definição</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fas fa-check-circle text-amber-400"></i>
+                <span>Suporte contínuo da equipe Strong Corpus</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Todos%20os%20Dias%20(R%24%2090%2C00)%20na%20Academia%20Strong%20Corpus!" 
+             target="_blank" rel="noopener noreferrer"
+             class="btn-brand-gradient w-full py-4 px-5 rounded-2xl font-heading font-bold uppercase tracking-wider text-base text-black flex items-center justify-center gap-2.5">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span>Assinar Plano Todos os Dias</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Destaque Taxa Única: Avaliação / Matrícula R$ 25 -->
+      <div class="reveal mt-8 glass-panel rounded-3xl p-6 sm:p-8 border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl shrink-0">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-amber-500/15 text-amber-400 font-heading font-bold text-xs uppercase tracking-wider mb-1">
+              Taxa Única de Adesão
+            </div>
+            <h3 class="font-display font-bold text-lg sm:text-xl text-white uppercase">
+              Matrícula + Avaliação Física
+            </h3>
+            <p class="text-zinc-400 text-xs sm:text-sm mt-1 max-w-xl">
+              Comece do jeito certo com sua matrícula ativa e avaliação física inicial para montar seu treino sob medida.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-5 shrink-0">
+          <div class="text-center sm:text-right">
+            <span class="block text-[11px] uppercase tracking-wider text-zinc-400">Valor Único</span>
+            <div class="flex items-baseline justify-center sm:justify-end gap-1">
+              <span class="text-amber-400 font-heading font-bold text-base">R$</span>
+              <span class="font-display font-black text-3xl sm:text-4xl text-white">25</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20minha%20matr%C3%ADcula%20e%20avalia%C3%A7%C3%A3o%20f%C3%ADsica%20(R%24%2025%2C00)%20na%20Strong%20Corpus!" 
+             target="_blank" rel="noopener noreferrer"
+             class="px-6 py-3.5 rounded-xl bg-black hover:bg-amber-500 text-amber-400 hover:text-black border border-amber-500/50 hover:border-amber-500 font-heading font-bold text-sm uppercase tracking-wider flex items-center gap-2 transition-all">
+            <i class="fab fa-whatsapp text-base"></i>
+            <span>Fazer Matrícula</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 6. SEÇÃO DE PROVA SOCIAL (AVALIAÇÕES REAIS DO GOOGLE - 4,7 ★ / 82)    -->
+  <!-- ===================================================================== -->
+  <section id="avaliacoes" class="py-20 lg:py-28 bg-black relative border-t border-zinc-800/80 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-amber-500/10 blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Cabeçalho com Nota Oficial do Google -->
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-black border border-amber-500/30 shadow-xl mb-6">
+          <i class="fab fa-google text-amber-400 text-xl"></i>
+          <div class="text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-display font-black text-lg text-white">4,7</span>
+              <div class="flex text-amber-400 text-xs">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <p class="text-[11px] text-zinc-400">Baseado em <strong class="text-zinc-200">82 avaliações reais</strong></p>
+          </div>
+        </div>
+
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-tight text-white">
+          Quem Treina na Strong Corpus <span class="text-brand-gradient">Recomenda</span>
+        </h2>
+
+        <!-- Tags com frases reais destacadas pelos alunos -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <span class="px-4 py-2 rounded-full bg-black border border-zinc-800 text-xs sm:text-sm text-amber-300 font-medium">
+            <i class="fas fa-quote-left mr-1.5 opacity-60"></i>Segunda casa, melhor academia da região
+          </span>
+          <span class="px-4 py-2 rounded-full bg-black border border-zinc-800 text-xs sm:text-sm text-amber-300 font-medium">
+            <i class="fas fa-quote-left mr-1.5 opacity-60"></i>Espaço e treinamento de primeira 👉♥️💪
+          </span>
+          <span class="px-4 py-2 rounded-full bg-black border border-zinc-800 text-xs sm:text-sm text-amber-300 font-medium">
+            <i class="fas fa-quote-left mr-1.5 opacity-60"></i>Ótimo lugar para buscar a saúde física
+          </span>
+        </div>
+      </div>
+
+      <!-- Cards com Depoimentos Reais -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        
+        <!-- Depoimento 1: Jardel Santos Santos -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex text-amber-400 text-sm gap-1">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="text-xs text-zinc-500 flex items-center gap-1">
+                <i class="fab fa-google text-zinc-400"></i> Avaliação Verificada
+              </span>
+            </div>
+            <p class="text-zinc-200 text-base leading-relaxed italic mb-6">
+              "Muito boa … já treinei lá pode confiar"
+            </p>
+          </div>
+          <div class="flex items-center gap-3.5 pt-4 border-t border-zinc-800/80">
+            <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center font-display font-bold text-black text-sm">
+              JS
+            </div>
+            <div>
+              <p class="font-bold text-sm text-white">Jardel Santos Santos</p>
+              <p class="text-xs text-zinc-400">Local Guide • 7 avaliações</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2: Danilo Garcia -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between border-amber-500/30" style="transition-delay: 120ms;">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex text-amber-400 text-sm gap-1">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="text-xs text-zinc-500 flex items-center gap-1">
+                <i class="fab fa-google text-zinc-400"></i> Avaliação Verificada
+              </span>
+            </div>
+            <p class="text-zinc-200 text-base leading-relaxed italic mb-6">
+              "Academia 5 🌟 ótimo atendimento equipamentos de qualidade e os instrutores são 10 👍"
+            </p>
+          </div>
+          <div class="flex items-center gap-3.5 pt-4 border-t border-zinc-800/80">
+            <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center font-display font-bold text-black text-sm">
+              DG
+            </div>
+            <div>
+              <p class="font-bold text-sm text-white">Danilo Garcia</p>
+              <p class="text-xs text-zinc-400">6 avaliações no Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3: Larissa Santos -->
+        <div class="reveal glass-panel card-glow rounded-2xl p-7 flex flex-col justify-between" style="transition-delay: 240ms;">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex text-amber-400 text-sm gap-1">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <span class="text-xs text-zinc-500 flex items-center gap-1">
+                <i class="fab fa-google text-zinc-400"></i> Avaliação Verificada
+              </span>
+            </div>
+            <p class="text-zinc-200 text-base leading-relaxed italic mb-6">
+              "Excelente Academia. Excelentes profissionais. Com várias opções de atividades físicas."
+            </p>
+          </div>
+          <div class="flex items-center gap-3.5 pt-4 border-t border-zinc-800/80">
+            <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center font-display font-bold text-black text-sm">
+              LS
+            </div>
+            <div>
+              <p class="font-bold text-sm text-white">Larissa Santos</p>
+              <p class="text-xs text-zinc-400">3 avaliações no Google</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 7. SEÇÃO DE LOCALIZAÇÃO, HORÁRIOS E CONTATO                           -->
+  <!-- ===================================================================== -->
+  <section id="localizacao" class="py-20 lg:py-28 bg-black relative border-t border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        
+        <!-- Coluna de Informações e Botões de Ação -->
+        <div class="lg:col-span-5 flex flex-col justify-between space-y-6 reveal">
+          <div>
+            <span class="inline-block px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">
+              Venha Nos Visitar
+            </span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-tight text-white">
+              Onde Estamos em <span class="text-brand-gradient">Guaranésia</span>
+            </h2>
+            <p class="mt-3 text-zinc-400 text-sm sm:text-base">
+              Fácil acesso no bairro Bom Jesus. Venha conhecer nossa estrutura pessoalmente ou agende sua aula experimental agora pelo WhatsApp.
+            </p>
+          </div>
+
+          <!-- Cards de Informação -->
+          <div class="space-y-4">
+            <!-- Endereço -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <i class="fas fa-map-marker-alt text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-zinc-300">Endereço</h3>
+                <p class="text-white font-medium text-sm sm:text-base mt-0.5">
+                  R. João Minchillo, 332 - Bom Jesus
+                </p>
+                <p class="text-zinc-400 text-xs sm:text-sm">Guaranésia - MG, CEP 37810-000</p>
+              </div>
+            </div>
+
+            <!-- Horário de Funcionamento -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                <i class="fas fa-clock text-lg"></i>
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-zinc-300">Horário de Funcionamento</h3>
+                <p class="text-emerald-400 font-semibold text-sm sm:text-base mt-0.5">
+                  Aberto • Fecha às 21:00
+                </p>
+                <p class="text-zinc-400 text-xs sm:text-sm">Segunda a Sexta — Treine no melhor horário para você</p>
+              </div>
+            </div>
+
+            <!-- Telefone / WhatsApp -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <i class="fas fa-phone-alt text-lg"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-zinc-300">Telefone & WhatsApp</h3>
+                <div class="flex flex-wrap items-center justify-between gap-2 mt-0.5">
+                  <a href="tel:+5535991507117" class="text-white hover:text-amber-400 font-bold text-base sm:text-lg transition-colors">
+                    (35) 99150-7117
+                  </a>
+                  <button id="copy-phone-btn" type="button" 
+                          class="text-xs px-2.5 py-1 rounded-lg bg-black hover:bg-zinc-900 text-zinc-300 border border-zinc-700 transition-colors flex items-center gap-1.5">
+                    <i class="far fa-copy"></i>
+                    <span id="copy-phone-text">Copiar</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botões de Ação Direta -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20aula%20experimental%20na%20Strong%20Corpus!" 
+               target="_blank" rel="noopener noreferrer"
+               class="btn-brand-gradient py-3.5 px-4 rounded-xl font-heading font-bold text-sm uppercase tracking-wider text-black flex items-center justify-center gap-2">
+              <i class="fab fa-whatsapp text-lg"></i>
+              <span>Chamar no WhatsApp</span>
+            </a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=R.+Jo%C3%A3o+Minchillo,+332+-+Bom+Jesus,+Guaran%C3%A9sia+-+MG,+37810-000" 
+               target="_blank" rel="noopener noreferrer"
+               class="py-3.5 px-4 rounded-xl bg-black hover:bg-zinc-950 border border-zinc-700 hover:border-amber-500 text-white font-heading font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+              <i class="fas fa-directions text-amber-400 text-lg"></i>
+              <span>Traçar Rota no GPS</span>
+            </a>
+          </div>
+
+          <a href="https://instagram.com/strongcorpus" target="_blank" rel="noopener noreferrer"
+             class="w-full py-3 px-4 rounded-xl bg-black border border-zinc-800 hover:border-amber-500/50 text-zinc-200 hover:text-white font-heading font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all">
+            <i class="fab fa-instagram text-lg text-amber-400"></i>
+            <span>Acompanhe nossa rotina no Instagram @strongcorpus</span>
+          </a>
+        </div>
+
+        <!-- Coluna do Mapa Incorporado Google Maps -->
+        <div class="lg:col-span-7 reveal min-h-[380px] lg:min-h-full">
+          <div class="w-full h-full rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl relative bg-black">
+            <iframe 
+              title="Localização Academia Strong Corpus - R. João Minchillo, 332, Guaranésia - MG"
+              src="https://maps.google.com/maps?q=R.%20Jo%C3%A3o%20Minchillo,%20332%20-%20Bom%20Jesus,%20Guaran%C3%A9sia%20-%20MG,%2037810-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              class="w-full h-full min-h-[380px] border-0 filter contrast-105"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 8. BANNER FINAL DE CONVERSÃO & RODAPÉ COMPLETO                        -->
+  <!-- ===================================================================== -->
+  <section class="py-16 bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 text-black relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight">
+        Pronto para dar o primeiro passo na sua evolução?
+      </h2>
+      <p class="mt-3 text-black/90 font-medium text-base sm:text-lg max-w-2xl mx-auto">
+        Venha fazer uma aula experimental gratuita na Academia Strong Corpus e sinta na prática a diferença de treinar com quem realmente se importa com você.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Quero%20garantir%20minha%20aula%20experimental%20na%20Academia%20Strong%20Corpus!" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-black hover:bg-zinc-950 text-white font-heading font-bold text-lg uppercase tracking-wider shadow-2xl flex items-center justify-center gap-3 transition-transform hover:-translate-y-1">
+          <i class="fab fa-whatsapp text-2xl text-emerald-400"></i>
+          <span>Agendar Agora pelo WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-black border-t border-zinc-800/90 pt-14 pb-10 text-zinc-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-zinc-800/80">
+        
+        <!-- Coluna 1: Marca -->
+        <div class="space-y-4">
+          <div class="inline-flex flex-col items-start">
+            <span class="font-display font-extrabold text-base tracking-[0.22em] text-brand-gradient leading-none">
+              ACADEMIA
+            </span>
+            <div class="w-44 h-4 my-1">
+              <svg viewBox="0 0 220 32" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 16 H70 L78 10 L86 22 L95 4 L105 29 L115 9 L123 20 L130 16 H220" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="font-display font-black text-sm tracking-[0.18em] text-brand-gradient leading-none">
+              STRONG CORPUS
+            </span>
+          </div>
+          <p class="text-sm text-zinc-400 leading-relaxed max-w-xs">
+            Saúde física, força, condicionamento e bem-estar em Guaranésia - MG. Nota 4,7 estrelas no Google.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Links Rápidos -->
+        <div>
+          <h4 class="font-heading font-bold text-white uppercase tracking-wider text-sm mb-4">Navegação Rápida</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#inicio" class="hover:text-amber-400 transition-colors">Início</a></li>
+            <li><a href="#diferenciais" class="hover:text-amber-400 transition-colors">Por que a Strong Corpus</a></li>
+            <li><a href="#modalidades" class="hover:text-amber-400 transition-colors">Modalidades e Treinos</a></li>
+            <li><a href="#planos" class="hover:text-amber-400 transition-colors">Planos e Mensalidades</a></li>
+            <li><a href="#avaliacoes" class="hover:text-amber-400 transition-colors">Avaliações de Alunos</a></li>
+            <li><a href="#localizacao" class="hover:text-amber-400 transition-colors">Localização e Horários</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Contato e Redes Sociais -->
+        <div>
+          <h4 class="font-heading font-bold text-white uppercase tracking-wider text-sm mb-4">Contato e Redes Sociais</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2.5">
+              <i class="fas fa-map-marker-alt text-amber-500 mt-1"></i>
+              <span>R. João Minchillo, 332 - Bom Jesus, Guaranésia - MG, 37810-000</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fab fa-whatsapp text-emerald-400"></i>
+              <a href="https://wa.me/5535991507117" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                (35) 99150-7117
+              </a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fab fa-instagram text-amber-400"></i>
+              <a href="https://instagram.com/strongcorpus" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                @strongcorpus
+              </a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-3 mt-5">
+            <a href="https://instagram.com/strongcorpus" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-xl bg-black border border-zinc-800 hover:border-amber-500 flex items-center justify-center text-white hover:text-amber-400 transition-all"
+               aria-label="Instagram">
+              <i class="fab fa-instagram text-lg"></i>
+            </a>
+            <a href="https://wa.me/5535991507117" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-xl bg-black border border-zinc-800 hover:border-emerald-500 flex items-center justify-center text-white hover:text-emerald-400 transition-all"
+               aria-label="WhatsApp">
+              <i class="fab fa-whatsapp text-lg"></i>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Academia+Strong+Corpus+Guaranesia" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-xl bg-black border border-zinc-800 hover:border-amber-500 flex items-center justify-center text-white hover:text-amber-400 transition-all"
+               aria-label="Google Maps">
+              <i class="fas fa-map-marked-alt text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <p>&copy; <span id="current-year"></span> Academia Strong Corpus — Guaranésia, MG. Todos os direitos reservados.</p>
+        <p>Feito para transformar vidas através do movimento.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP COM PULSO                                 -->
+  <!-- ===================================================================== -->
+  <a href="https://wa.me/5535991507117?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Academia%20Strong%20Corpus!" 
+     target="_blank" rel="noopener noreferrer"
+     class="whatsapp-pulse fixed bottom-5 right-5 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-2xl flex items-center justify-center transition-transform hover:scale-110"
+     aria-label="Falar com a Academia Strong Corpus no WhatsApp"
+     title="Agende sua aula no WhatsApp">
+    <i class="fab fa-whatsapp text-3xl sm:text-4xl"></i>
+  </a>
+
+  <!-- Notificação Toast personalizada (sem uso de alert) -->
+  <div id="toast-notification" class="fixed bottom-24 right-5 z-50 hidden px-4 py-3 rounded-xl bg-black border border-amber-500/50 text-white text-sm shadow-2xl items-center gap-2.5">
+    <i class="fas fa-check-circle text-amber-400"></i>
+    <span>Telefone (35) 99150-7117 copiado!</span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT PURO: MENU MOBILE, SCROLL REVEAL, CONTADORES E CLIPBOARD   -->
+  <!-- ===================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Atualiza o ano automaticamente no rodapé
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // 2. Controle do Menu Hambúrguer Mobile
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      }
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (!mobileMenu.classList.contains('hidden')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+
+      // 3. Animação de Scroll Reveal (Intersection Observer)
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // 4. Contadores Animados (4.7 estrelas e +82 avaliações)
+      const counters = document.querySelectorAll('.counter');
+      let countersAnimated = false;
+
+      function animateCounters() {
+        if (countersAnimated) return;
+        countersAnimated = true;
+
+        counters.forEach(counter => {
+          const target = parseFloat(counter.getAttribute('data-target'));
+          const decimals = parseInt(counter.getAttribute('data-decimals') || '0', 10);
+          const duration = 1600;
+          const startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+            const currentValue = target * easeProgress;
+
+            counter.textContent = decimals > 0
+              ? currentValue.toFixed(decimals).replace('.', ',')
+              : Math.round(currentValue);
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = decimals > 0
+                ? target.toFixed(decimals).replace('.', ',')
+                : target;
+            }
+          }
+
+          requestAnimationFrame(updateCounter);
+        });
+      }
+
+      setTimeout(animateCounters, 350);
+
+      // 5. Botão de Copiar Telefone com fallback seguro e feedback visual
+      const copyBtn = document.getElementById('copy-phone-btn');
+      const copyText = document.getElementById('copy-phone-text');
+      const toast = document.getElementById('toast-notification');
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const phone = '(35) 99150-7117';
+          const tempInput = document.createElement('input');
+          tempInput.value = phone;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          try {
+            document.execCommand('copy');
+            copyText.textContent = 'Copiado!';
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+              copyText.textContent = 'Copiar';
+              toast.classList.add('hidden');
+              toast.classList.remove('flex');
+            }, 2600);
+          } catch (err) {
+            console.error('Erro ao copiar telefone:', err);
+          }
+          document.body.removeChild(tempInput);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
